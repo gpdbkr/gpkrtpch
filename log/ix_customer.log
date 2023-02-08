@@ -1,0 +1,2 @@
+create index customer_ix on CUSTOMER(C_CUSTKEY);  ;
+CREATE INDEX

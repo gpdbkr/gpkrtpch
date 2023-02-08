@@ -1,0 +1,111 @@
+Timing is on.
+drop database if exists gpkrtpch;
+DROP DATABASE
+Time: 338.840 ms
+create database gpkrtpch encoding='UTF8';
+CREATE DATABASE
+Time: 591.895 ms
+select 'gpkrtpch' dbname, pg_size_pretty(pg_Database_size('gpkrtpch'));
+  dbname  | pg_size_pretty 
+----------+----------------
+ gpkrtpch | 49 MB
+(1 row)
+
+Time: 7.883 ms
+                             List of relations
+       Schema       |           Name           | Type  |  Owner  | Storage 
+--------------------+--------------------------+-------+---------+---------
+ information_schema | sql_features             | table | gpadmin | heap
+ information_schema | sql_implementation_info  | table | gpadmin | heap
+ information_schema | sql_languages            | table | gpadmin | heap
+ information_schema | sql_packages             | table | gpadmin | heap
+ information_schema | sql_parts                | table | gpadmin | heap
+ information_schema | sql_sizing               | table | gpadmin | heap
+ information_schema | sql_sizing_profiles      | table | gpadmin | heap
+ pg_catalog         | gp_configuration_history | table | gpadmin | heap
+ pg_catalog         | gp_distribution_policy   | table | gpadmin | heap
+ pg_catalog         | gp_fastsequence          | table | gpadmin | heap
+ pg_catalog         | gp_id                    | table | gpadmin | heap
+ pg_catalog         | gp_segment_configuration | table | gpadmin | heap
+ pg_catalog         | gp_version_at_initdb     | table | gpadmin | heap
+ pg_catalog         | pg_aggregate             | table | gpadmin | heap
+ pg_catalog         | pg_am                    | table | gpadmin | heap
+ pg_catalog         | pg_amop                  | table | gpadmin | heap
+ pg_catalog         | pg_amproc                | table | gpadmin | heap
+ pg_catalog         | pg_appendonly            | table | gpadmin | heap
+ pg_catalog         | pg_attrdef               | table | gpadmin | heap
+ pg_catalog         | pg_attribute             | table | gpadmin | heap
+ pg_catalog         | pg_attribute_encoding    | table | gpadmin | heap
+ pg_catalog         | pg_auth_members          | table | gpadmin | heap
+ pg_catalog         | pg_auth_time_constraint  | table | gpadmin | heap
+ pg_catalog         | pg_authid                | table | gpadmin | heap
+ pg_catalog         | pg_cast                  | table | gpadmin | heap
+ pg_catalog         | pg_class                 | table | gpadmin | heap
+ pg_catalog         | pg_collation             | table | gpadmin | heap
+ pg_catalog         | pg_compression           | table | gpadmin | heap
+ pg_catalog         | pg_constraint            | table | gpadmin | heap
+ pg_catalog         | pg_conversion            | table | gpadmin | heap
+ pg_catalog         | pg_database              | table | gpadmin | heap
+ pg_catalog         | pg_db_role_setting       | table | gpadmin | heap
+ pg_catalog         | pg_default_acl           | table | gpadmin | heap
+ pg_catalog         | pg_depend                | table | gpadmin | heap
+ pg_catalog         | pg_description           | table | gpadmin | heap
+ pg_catalog         | pg_enum                  | table | gpadmin | heap
+ pg_catalog         | pg_event_trigger         | table | gpadmin | heap
+ pg_catalog         | pg_extension             | table | gpadmin | heap
+ pg_catalog         | pg_extprotocol           | table | gpadmin | heap
+ pg_catalog         | pg_exttable              | table | gpadmin | heap
+ pg_catalog         | pg_foreign_data_wrapper  | table | gpadmin | heap
+ pg_catalog         | pg_foreign_server        | table | gpadmin | heap
+ pg_catalog         | pg_foreign_table         | table | gpadmin | heap
+ pg_catalog         | pg_index                 | table | gpadmin | heap
+ pg_catalog         | pg_inherits              | table | gpadmin | heap
+ pg_catalog         | pg_language              | table | gpadmin | heap
+ pg_catalog         | pg_largeobject           | table | gpadmin | heap
+ pg_catalog         | pg_largeobject_metadata  | table | gpadmin | heap
+ pg_catalog         | pg_namespace             | table | gpadmin | heap
+ pg_catalog         | pg_opclass               | table | gpadmin | heap
+ pg_catalog         | pg_operator              | table | gpadmin | heap
+ pg_catalog         | pg_opfamily              | table | gpadmin | heap
+ pg_catalog         | pg_partition             | table | gpadmin | heap
+ pg_catalog         | pg_partition_encoding    | table | gpadmin | heap
+ pg_catalog         | pg_partition_rule        | table | gpadmin | heap
+ pg_catalog         | pg_pltemplate            | table | gpadmin | heap
+ pg_catalog         | pg_proc                  | table | gpadmin | heap
+ pg_catalog         | pg_proc_callback         | table | gpadmin | heap
+ pg_catalog         | pg_range                 | table | gpadmin | heap
+ pg_catalog         | pg_resgroup              | table | gpadmin | heap
+ pg_catalog         | pg_resgroupcapability    | table | gpadmin | heap
+ pg_catalog         | pg_resourcetype          | table | gpadmin | heap
+ pg_catalog         | pg_resqueue              | table | gpadmin | heap
+ pg_catalog         | pg_resqueuecapability    | table | gpadmin | heap
+ pg_catalog         | pg_rewrite               | table | gpadmin | heap
+ pg_catalog         | pg_seclabel              | table | gpadmin | heap
+ pg_catalog         | pg_shdepend              | table | gpadmin | heap
+ pg_catalog         | pg_shdescription         | table | gpadmin | heap
+ pg_catalog         | pg_shseclabel            | table | gpadmin | heap
+ pg_catalog         | pg_stat_last_operation   | table | gpadmin | heap
+ pg_catalog         | pg_stat_last_shoperation | table | gpadmin | heap
+ pg_catalog         | pg_statistic             | table | gpadmin | heap
+ pg_catalog         | pg_tablespace            | table | gpadmin | heap
+ pg_catalog         | pg_trigger               | table | gpadmin | heap
+ pg_catalog         | pg_ts_config             | table | gpadmin | heap
+ pg_catalog         | pg_ts_config_map         | table | gpadmin | heap
+ pg_catalog         | pg_ts_dict               | table | gpadmin | heap
+ pg_catalog         | pg_ts_parser             | table | gpadmin | heap
+ pg_catalog         | pg_ts_template           | table | gpadmin | heap
+ pg_catalog         | pg_type                  | table | gpadmin | heap
+ pg_catalog         | pg_type_encoding         | table | gpadmin | heap
+ pg_catalog         | pg_user_mapping          | table | gpadmin | heap
+(82 rows)
+
+select * from gp_segment_configuration order by 1;
+ dbid | content | role | preferred_role | mode | status | port |  hostname  | address |       datadir        
+------+---------+------+----------------+------+--------+------+------------+---------+----------------------
+    1 |      -1 | p    | p              | n    | u      | 5432 | mdw        | mdw     | /data/master/gpseg-1
+    2 |       0 | p    | p              | n    | u      | 6000 | r8g6single | mdw     | /data/primary/gpseg0
+    3 |       1 | p    | p              | n    | u      | 6001 | r8g6single | mdw     | /data/primary/gpseg1
+(3 rows)
+
+Time: 1.551 ms
+./1.1_create_db.sh|2023-02-07 18:30:15|2023-02-07 18:30:15|0

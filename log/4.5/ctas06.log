@@ -1,0 +1,19 @@
+Timing is on.
+drop table if exists dml06;
+psql:/data/gpkrtpch/query/ctas06.sql:1: NOTICE:  table "dml06" does not exist, skipping
+DROP TABLE
+Time: 5.057 ms
+create table dml06 as
+select
+	sum(l_extendedprice * l_discount) as revenue
+from
+	lineitem
+where
+	l_shipdate >= date '1996-01-01'
+	and l_shipdate < date '1996-01-01' + interval '1 year'
+	and l_discount between 0.04 - 0.01 and 0.04 + 0.01
+	and l_quantity < 24
+distributed randomly
+;
+SELECT 1
+Time: 326.916 ms

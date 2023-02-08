@@ -1,0 +1,42 @@
+Timing is on.
+set gpcc.query_tags to 'appname=mstr';
+SET
+Time: 54.918 ms
+select
+	l_orderkey,
+	sum(l_extendedprice * (1 - l_discount)) as revenue,
+	o_orderdate,
+	o_shippriority
+from
+	customer,
+	orders,
+	lineitem
+where
+	c_mktsegment = 'MACHINERY'
+	and c_custkey = o_custkey
+	and l_orderkey = o_orderkey
+	and o_orderdate < date '1995-03-15'
+	and l_shipdate > date '1995-03-15'
+group by
+	l_orderkey,
+	o_orderdate,
+	o_shippriority
+order by
+	revenue desc,
+	o_orderdate
+LIMIT 10;
+ l_orderkey |   revenue    | o_orderdate | o_shippriority 
+------------+--------------+-------------+----------------
+    4958374 | 1242640.8288 | 1995-02-25  |              0
+     564738 | 1214883.3289 | 1995-03-06  |              0
+    4780262 | 1204242.4092 | 1995-03-14  |              0
+    5160704 | 1192344.3600 | 1995-02-11  |              0
+    5660420 | 1168029.5388 | 1995-03-08  |              0
+    5317382 | 1158673.5288 | 1995-01-23  |              0
+    3837441 | 1147704.1149 | 1995-02-14  |              0
+    2469479 | 1134414.8223 | 1995-03-08  |              0
+    5273860 | 1128925.4605 | 1995-02-06  |              0
+    5497633 | 1128509.3048 | 1995-02-23  |              0
+(10 rows)
+
+Time: 15893.071 ms

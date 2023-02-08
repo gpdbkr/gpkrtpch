@@ -1,0 +1,10 @@
+select * from    lineitem  where   l_orderkey = 11601223 ;
+select * from orders where o_orderkey between  2727 and 2730 order by 1;
+select o_custkey, count(*) from orders where o_custkey = 3355967 group by 1;
+select * From nation where n_name = 'VIETNAM' ;
+select p_partkey, count(*) from part where p_partkey between 10292 and 10291 group by 1 order by 1;
+select c_acctbal, count(*) from customer where c_custkey between 18273 and 18275 group by 1  order by 1 ;
+select * From nation where n_nationkey = 1 ;
+select  c_name, count(*)  from  customer where  c_custkey = 104445  group by 1 order by 1;
+select s_phone, count(*) from supplier where s_suppkey between 1234 and 1237 group by 1 order by 1;
+select  c_name, c_custkey  from  customer where  c_custkey = 17171 ;

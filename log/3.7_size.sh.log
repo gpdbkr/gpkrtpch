@@ -1,0 +1,25 @@
+Timing is on.
+select sotaidschemaname schema_nm
+     , split_part(sotaidtablename, '_1_prt_', 1) tb_nm
+     , round(sum(sotaidtablesize)/1024/1024) tb_size_mb
+     , round(sum(sotaididxsize)/1024/1024)   ix_size_mb
+from   gp_toolkit.gp_size_of_table_and_indexes_disk
+where  sotaidschemaname = 'gpkrtpch'
+group by 1,2
+order by 1,2;
+ schema_nm |      tb_nm       | tb_size_mb | ix_size_mb 
+-----------+------------------+------------+------------
+ gpkrtpch  | customer         |         28 |          3
+ gpkrtpch  | customer_com_col |          0 |          0
+ gpkrtpch  | customer_com_row |          0 |          0
+ gpkrtpch  | lineitem         |       1171 |        386
+ gpkrtpch  | nation           |          0 |          0
+ gpkrtpch  | orders           |        265 |        100
+ gpkrtpch  | part             |         32 |          4
+ gpkrtpch  | partsupp         |         33 |          0
+ gpkrtpch  | region           |          0 |          0
+ gpkrtpch  | supplier         |          2 |          0
+(10 rows)
+
+Time: 136.481 ms
+./3.7_size.sh|2023-02-07 18:33:07|2023-02-07 18:33:07|0

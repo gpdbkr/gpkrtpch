@@ -1,0 +1,40 @@
+VERSION: 1.0.0.1
+DATABASE: gpkrtpch
+USER: udba
+HOST: mdw
+PORT: 5432
+GPLOAD:
+    INPUT:
+     - SOURCE:
+          LOCAL_HOSTNAME:
+            - mdw
+          PORT_RANGE: [8081, 9081]
+          FILE: [ /data/gpkrtpch/data/part.tbl.gz ]
+     - COLUMNS:
+       - p_partkey: integer
+       - p_name: character varying(55)
+       - p_mfgr: character(25)
+       - p_brand: character(10)
+       - p_type: character varying(25)
+       - p_size: integer
+       - p_container: character(10)
+       - p_retailprice: numeric(15,2)
+       - p_comment: character varying(23)
+     - FORMAT: text
+     - DELIMITER: '|'
+     - NULL_AS: '' 
+     - ERROR_LIMIT: 25
+     - LOG_ERRORS: true
+    OUTPUT:
+     - TABLE: gpkrtpch.part
+     - MODE: INSERT 
+     - MAPPING: 
+        p_partkey: p_partkey
+        p_name: p_name
+        p_mfgr: p_mfgr
+        p_brand: p_brand
+        p_type: p_type
+        p_size: p_size
+        p_container: p_container
+        p_retailprice: p_retailprice
+        p_comment: p_comment

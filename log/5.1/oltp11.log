@@ -1,0 +1,87 @@
+Timing is on.
+select o_custkey, count(*) from orders where o_custkey = 3723724 group by 1;
+ o_custkey | count 
+-----------+-------
+(0 rows)
+
+Time: 3618.153 ms
+select * from    lineitem  where   l_orderkey = 131531 ;
+ l_orderkey | l_partkey | l_suppkey | l_linenumber | l_quantity | l_extendedprice | l_discount | l_tax | l_returnflag | l_linestatus | l_shipdate | l_commitdate | l_receiptdate | l_shipinstruct | l_shipmode | l_comment 
+------------+-----------+-----------+--------------+------------+-----------------+------------+-------+--------------+--------------+------------+--------------+---------------+----------------+------------+-----------
+(0 rows)
+
+Time: 2267.747 ms
+select  c_name, c_custkey  from  customer where  c_custkey = 13121 ;
+       c_name       | c_custkey 
+--------------------+-----------
+ Customer#000013121 |     13121
+(1 row)
+
+Time: 947.170 ms
+select o_custkey, count(*) from orders where o_custkey = 123132 group by 1;
+ o_custkey | count 
+-----------+-------
+(0 rows)
+
+Time: 2580.672 ms
+select * from orders where o_orderkey between  63768 and 63790 order by 1;
+ o_orderkey | o_custkey | o_orderstatus | o_totalprice | o_orderdate | o_orderpriority |     o_clerk     | o_shippriority |                             o_comment                              
+------------+-----------+---------------+--------------+-------------+-----------------+-----------------+----------------+--------------------------------------------------------------------
+      63776 |     11134 | O             |    150096.60 | 1998-03-30  | 3-MEDIUM        | Clerk#000000982 |              0 | even, regular foxes sleep quickly. pending, ironic 
+      63776 |     11134 | O             |    150096.60 | 2005-03-30  | 3-MEDIUM        | Clerk#000000982 |              0 | even, regular foxes sleep quickly. pending, ironic 
+      63776 |     11134 | O             |    150096.60 | 2012-03-30  | 3-MEDIUM        | Clerk#000000982 |              0 | even, regular foxes sleep quickly. pending, ironic 
+      63777 |     58669 | O             |    229676.98 | 2003-01-15  | 2-HIGH          | Clerk#000000962 |              0 | quickly even epitaphs are furiously
+      63777 |     58669 | O             |    229676.98 | 2010-01-15  | 2-HIGH          | Clerk#000000962 |              0 | quickly even epitaphs are furiously
+      63777 |     58669 | O             |    229676.98 | 1996-01-15  | 2-HIGH          | Clerk#000000962 |              0 | quickly even epitaphs are furiously
+      63778 |     81901 | F             |     11619.79 | 2002-04-22  | 5-LOW           | Clerk#000000896 |              0 | even, ironic ideas cajole blithely final pinto bean
+      63778 |     81901 | F             |     11619.79 | 2009-04-22  | 5-LOW           | Clerk#000000896 |              0 | even, ironic ideas cajole blithely final pinto bean
+      63778 |     81901 | F             |     11619.79 | 1995-04-22  | 5-LOW           | Clerk#000000896 |              0 | even, ironic ideas cajole blithely final pinto bean
+      63779 |    107645 | F             |    136415.32 | 2006-01-27  | 5-LOW           | Clerk#000000442 |              0 | ironically express accounts abo
+      63779 |    107645 | F             |    136415.32 | 1992-01-27  | 5-LOW           | Clerk#000000442 |              0 | ironically express accounts abo
+      63779 |    107645 | F             |    136415.32 | 1999-01-27  | 5-LOW           | Clerk#000000442 |              0 | ironically express accounts abo
+      63780 |     26966 | O             |    160859.03 | 2003-09-20  | 1-URGENT        | Clerk#000000542 |              0 | slyly regular decoys along the furiousl
+      63780 |     26966 | O             |    160859.03 | 2010-09-20  | 1-URGENT        | Clerk#000000542 |              0 | slyly regular decoys along the furiousl
+      63780 |     26966 | O             |    160859.03 | 1996-09-20  | 1-URGENT        | Clerk#000000542 |              0 | slyly regular decoys along the furiousl
+      63781 |     60220 | O             |    110251.65 | 2002-09-13  | 1-URGENT        | Clerk#000000806 |              0 | slyly thin accounts wake f
+      63781 |     60220 | O             |    110251.65 | 2009-09-13  | 1-URGENT        | Clerk#000000806 |              0 | slyly thin accounts wake f
+      63781 |     60220 | O             |    110251.65 | 1995-09-13  | 1-URGENT        | Clerk#000000806 |              0 | slyly thin accounts wake f
+      63782 |     59071 | O             |    221562.99 | 1997-02-23  | 1-URGENT        | Clerk#000000559 |              0 | blithely regular accounts wake furiously. furiously silent courts 
+      63782 |     59071 | O             |    221562.99 | 2004-02-23  | 1-URGENT        | Clerk#000000559 |              0 | blithely regular accounts wake furiously. furiously silent courts 
+      63782 |     59071 | O             |    221562.99 | 2011-02-23  | 1-URGENT        | Clerk#000000559 |              0 | blithely regular accounts wake furiously. furiously silent courts 
+      63783 |     78494 | O             |     46281.27 | 1997-11-08  | 2-HIGH          | Clerk#000000459 |              0 | blithely regular request
+      63783 |     78494 | O             |     46281.27 | 2004-11-08  | 2-HIGH          | Clerk#000000459 |              0 | blithely regular request
+      63783 |     78494 | O             |     46281.27 | 2011-11-08  | 2-HIGH          | Clerk#000000459 |              0 | blithely regular request
+(24 rows)
+
+Time: 895.183 ms
+select c_comment, count(*) from customer where c_custkey between 745754 and 745760  group by 1 order by 1 ;
+ c_comment | count 
+-----------+-------
+(0 rows)
+
+Time: 713.028 ms
+select c_name, count(*) from customer where c_custkey between 754257 and 754260 group by 1 order by 1 ;
+ c_name | count 
+--------+-------
+(0 rows)
+
+Time: 676.193 ms
+select * from part where p_partkey = 97696  order by 1;
+ p_partkey |             p_name              |          p_mfgr           |  p_brand   |          p_type          | p_size | p_container | p_retailprice |  p_comment   
+-----------+---------------------------------+---------------------------+------------+--------------------------+--------+-------------+---------------+--------------
+     97696 | peru cornsilk blush sandy smoke | Manufacturer#5            | Brand#51   | STANDARD ANODIZED NICKEL |     44 | LG PKG      |       1693.69 | final, expre
+(1 row)
+
+Time: 234.032 ms
+select * From nation where n_nationkey = 45 ;
+ n_nationkey | n_name | n_regionkey | n_comment 
+-------------+--------+-------------+-----------
+(0 rows)
+
+Time: 98.776 ms
+select o_custkey, count(*) from orders where o_custkey = 745743 group by 1;
+ o_custkey | count 
+-----------+-------
+(0 rows)
+
+Time: 1721.119 ms

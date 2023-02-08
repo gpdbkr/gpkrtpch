@@ -1,0 +1,32 @@
+VERSION: 1.0.0.1
+DATABASE: gpkrtpch
+USER: udba
+HOST: mdw
+PORT: 5432
+GPLOAD:
+    INPUT:
+     - SOURCE:
+          LOCAL_HOSTNAME:
+            - mdw
+          PORT_RANGE: [8081, 9081]
+          FILE: [ /data/gpkrtpch/data/partsupp.tbl.gz ]
+     - COLUMNS:
+       - ps_partkey: integer
+       - ps_suppkey: integer
+       - ps_availqty: integer
+       - ps_supplycost: numeric(15,2)
+       - ps_comment: character varying(199)
+     - FORMAT: text
+     - DELIMITER: '|'
+     - NULL_AS: '' 
+     - ERROR_LIMIT: 25
+     - LOG_ERRORS: true
+    OUTPUT:
+     - TABLE: gpkrtpch.partsupp
+     - MODE: INSERT 
+     - MAPPING: 
+        ps_partkey: ps_partkey
+        ps_suppkey: ps_suppkey
+        ps_availqty: ps_availqty
+        ps_supplycost: ps_supplycost
+        ps_comment: ps_comment

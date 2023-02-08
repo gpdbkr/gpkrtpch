@@ -1,0 +1,140 @@
+Timing is on.
+select 
+	s_name, 
+	count(distinct(l1.l_orderkey::text||l1.l_linenumber::text)) as numwait 
+from 
+	supplier, 
+	orders, 
+	nation, 
+	lineitem l1 
+		left join lineitem l2 
+			on (l2.l_orderkey = l1.l_orderkey and l2.l_suppkey <> l1.l_suppkey) 
+		left join (
+			select 
+				l3.l_orderkey,
+				l3.l_suppkey 
+			from 
+				lineitem l3 
+			where 
+				l3.l_receiptdate > l3.l_commitdate) l4 
+			on (l4.l_orderkey = l1.l_orderkey and l4.l_suppkey <> l1.l_suppkey) 
+where 
+	s_suppkey = l1.l_suppkey 
+	and o_orderkey = l1.l_orderkey 
+	and o_orderstatus = 'F' 
+	and l1.l_receiptdate > l1.l_commitdate 
+	and l2.l_orderkey is not null 
+	and l4.l_orderkey is null 
+	and s_nationkey = n_nationkey 
+	and n_name = 'MOZAMBIQUE' 
+group by 
+	s_name 
+order by 
+	numwait desc, 
+	s_name
+LIMIT 100;
+          s_name           | numwait 
+---------------------------+---------
+ Supplier#000007754        |      23
+ Supplier#000009395        |      21
+ Supplier#000004918        |      20
+ Supplier#000000289        |      19
+ Supplier#000007775        |      19
+ Supplier#000003353        |      18
+ Supplier#000000338        |      17
+ Supplier#000002517        |      17
+ Supplier#000005931        |      17
+ Supplier#000007859        |      17
+ Supplier#000000540        |      16
+ Supplier#000001163        |      16
+ Supplier#000002176        |      16
+ Supplier#000003451        |      16
+ Supplier#000003688        |      16
+ Supplier#000004096        |      16
+ Supplier#000006143        |      16
+ Supplier#000007314        |      16
+ Supplier#000008302        |      16
+ Supplier#000008711        |      16
+ Supplier#000001842        |      15
+ Supplier#000001885        |      15
+ Supplier#000003032        |      15
+ Supplier#000003170        |      15
+ Supplier#000004217        |      15
+ Supplier#000004904        |      15
+ Supplier#000005222        |      15
+ Supplier#000005433        |      15
+ Supplier#000005533        |      15
+ Supplier#000006549        |      15
+ Supplier#000007883        |      15
+ Supplier#000008788        |      15
+ Supplier#000009354        |      15
+ Supplier#000000978        |      14
+ Supplier#000001038        |      14
+ Supplier#000001194        |      14
+ Supplier#000001195        |      14
+ Supplier#000001298        |      14
+ Supplier#000001451        |      14
+ Supplier#000001833        |      14
+ Supplier#000002082        |      14
+ Supplier#000002443        |      14
+ Supplier#000002953        |      14
+ Supplier#000003399        |      14
+ Supplier#000004276        |      14
+ Supplier#000007060        |      14
+ Supplier#000007718        |      14
+ Supplier#000008032        |      14
+ Supplier#000008668        |      14
+ Supplier#000008741        |      14
+ Supplier#000008817        |      14
+ Supplier#000009256        |      14
+ Supplier#000009262        |      14
+ Supplier#000009569        |      14
+ Supplier#000009745        |      14
+ Supplier#000000107        |      13
+ Supplier#000000726        |      13
+ Supplier#000000874        |      13
+ Supplier#000001105        |      13
+ Supplier#000001440        |      13
+ Supplier#000001469        |      13
+ Supplier#000001529        |      13
+ Supplier#000001908        |      13
+ Supplier#000001913        |      13
+ Supplier#000001945        |      13
+ Supplier#000002197        |      13
+ Supplier#000002935        |      13
+ Supplier#000003567        |      13
+ Supplier#000003801        |      13
+ Supplier#000003838        |      13
+ Supplier#000003942        |      13
+ Supplier#000004025        |      13
+ Supplier#000004456        |      13
+ Supplier#000005463        |      13
+ Supplier#000006434        |      13
+ Supplier#000006550        |      13
+ Supplier#000006686        |      13
+ Supplier#000006798        |      13
+ Supplier#000007079        |      13
+ Supplier#000007963        |      13
+ Supplier#000008392        |      13
+ Supplier#000009142        |      13
+ Supplier#000009218        |      13
+ Supplier#000009293        |      13
+ Supplier#000009396        |      13
+ Supplier#000009784        |      13
+ Supplier#000000031        |      12
+ Supplier#000000122        |      12
+ Supplier#000000140        |      12
+ Supplier#000000257        |      12
+ Supplier#000000854        |      12
+ Supplier#000001125        |      12
+ Supplier#000001484        |      12
+ Supplier#000001922        |      12
+ Supplier#000001963        |      12
+ Supplier#000002206        |      12
+ Supplier#000002451        |      12
+ Supplier#000002522        |      12
+ Supplier#000003354        |      12
+ Supplier#000003405        |      12
+(100 rows)
+
+Time: 115660.298 ms

@@ -1,0 +1,54 @@
+VERSION: 1.0.0.1
+DATABASE: gpkrtpch
+USER: udba
+HOST: mdw
+PORT: 5432
+GPLOAD:
+    INPUT:
+     - SOURCE:
+          LOCAL_HOSTNAME:
+            - mdw
+          PORT_RANGE: [8081, 9081]
+          FILE: [ /data/gpkrtpch/data/lineitem_*.tbl.gz ]
+     - COLUMNS:
+       - l_orderkey: bigint
+       - l_partkey: integer
+       - l_suppkey: integer
+       - l_linenumber: integer
+       - l_quantity: numeric(15,2)
+       - l_extendedprice: numeric(15,2)
+       - l_discount: numeric(15,2)
+       - l_tax: numeric(15,2)
+       - l_returnflag: character(1)
+       - l_linestatus: character(1)
+       - l_shipdate: date
+       - l_commitdate: date
+       - l_receiptdate: date
+       - l_shipinstruct: character(25)
+       - l_shipmode: character(10)
+       - l_comment: character varying(44)
+     - FORMAT: text
+     - DELIMITER: '|'
+     - NULL_AS: '' 
+     - ERROR_LIMIT: 25
+     - LOG_ERRORS: true
+    OUTPUT:
+     - TABLE: gpkrtpch.lineitem
+     - MODE: INSERT 
+     - MAPPING: 
+        l_orderkey: l_orderkey
+        l_partkey: l_partkey
+        l_suppkey: l_suppkey
+        l_linenumber: l_linenumber
+        l_quantity: l_quantity
+        l_extendedprice: l_extendedprice
+        l_discount: l_discount
+        l_tax: l_tax
+        l_returnflag: l_returnflag
+        l_linestatus: l_linestatus
+        l_shipdate: l_shipdate
+        l_commitdate: l_commitdate
+        l_receiptdate: l_receiptdate
+        l_shipinstruct: l_shipinstruct
+        l_shipmode: l_shipmode
+        l_comment: l_comment

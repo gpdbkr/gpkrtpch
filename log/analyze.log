@@ -1,0 +1,15 @@
+
+analyze gpkrtpch.region   ;
+analyze gpkrtpch.orders   ;
+analyze gpkrtpch.partsupp ;
+analyze gpkrtpch.supplier ;
+analyze gpkrtpch.customer ;
+analyze gpkrtpch.lineitem ;
+analyze gpkrtpch.part     ;
+ANALYZE
+ANALYZE
+ANALYZE
+ANALYZE
+ANALYZE
+ANALYZE
+ANALYZE

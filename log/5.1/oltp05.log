@@ -1,0 +1,75 @@
+Timing is on.
+select * from    lineitem  where   l_orderkey = 11601223 ;
+ l_orderkey | l_partkey | l_suppkey | l_linenumber | l_quantity | l_extendedprice | l_discount | l_tax | l_returnflag | l_linestatus | l_shipdate | l_commitdate | l_receiptdate | l_shipinstruct | l_shipmode | l_comment 
+------------+-----------+-----------+--------------+------------+-----------------+------------+-------+--------------+--------------+------------+--------------+---------------+----------------+------------+-----------
+(0 rows)
+
+Time: 856.722 ms
+select * from orders where o_orderkey between  2727 and 2730 order by 1;
+ o_orderkey | o_custkey | o_orderstatus | o_totalprice | o_orderdate | o_orderpriority |     o_clerk     | o_shippriority |                          o_comment                           
+------------+-----------+---------------+--------------+-------------+-----------------+-----------------+----------------+--------------------------------------------------------------
+       2727 |     73849 | O             |      5816.23 | 2005-04-19  | 4-NOT SPECIFIED | Clerk#000000879 |              0 | regular, bold packages nag furiously above the blithely spec
+       2727 |     73849 | O             |      5816.23 | 1998-04-19  | 4-NOT SPECIFIED | Clerk#000000879 |              0 | regular, bold packages nag furiously above the blithely spec
+       2727 |     73849 | O             |      5816.23 | 2012-04-19  | 4-NOT SPECIFIED | Clerk#000000879 |              0 | regular, bold packages nag furiously above the blithely spec
+(3 rows)
+
+Time: 915.616 ms
+select o_custkey, count(*) from orders where o_custkey = 3355967 group by 1;
+ o_custkey | count 
+-----------+-------
+(0 rows)
+
+Time: 5797.396 ms
+select * From nation where n_name = 'VIETNAM' ;
+ n_nationkey |          n_name           | n_regionkey |                                             n_comment                                              
+-------------+---------------------------+-------------+----------------------------------------------------------------------------------------------------
+          21 | VIETNAM                   |           2 | doggedly ironic requests haggle furiously ironic, ironic packages. furiously final courts wake fur
+(1 row)
+
+Time: 935.287 ms
+select p_partkey, count(*) from part where p_partkey between 10292 and 10291 group by 1 order by 1;
+ p_partkey | count 
+-----------+-------
+(0 rows)
+
+Time: 692.957 ms
+select c_acctbal, count(*) from customer where c_custkey between 18273 and 18275 group by 1  order by 1 ;
+ c_acctbal | count 
+-----------+-------
+   -100.35 |     1
+   2417.14 |     1
+   5286.91 |     1
+(3 rows)
+
+Time: 407.910 ms
+select * From nation where n_nationkey = 1 ;
+ n_nationkey |          n_name           | n_regionkey |                                                    n_comment                                                     
+-------------+---------------------------+-------------+------------------------------------------------------------------------------------------------------------------
+           1 | ARGENTINA                 |           1 | idly final instructions cajole stealthily. regular instructions wake carefully blithely express accounts. fluffi
+(1 row)
+
+Time: 1148.895 ms
+select  c_name, count(*)  from  customer where  c_custkey = 104445  group by 1 order by 1;
+       c_name       | count 
+--------------------+-------
+ Customer#000104445 |     1
+(1 row)
+
+Time: 636.578 ms
+select s_phone, count(*) from supplier where s_suppkey between 1234 and 1237 group by 1 order by 1;
+     s_phone     | count 
+-----------------+-------
+ 15-830-628-9526 |     1
+ 20-247-189-6514 |     1
+ 23-387-665-5120 |     1
+ 31-946-737-7255 |     1
+(4 rows)
+
+Time: 515.236 ms
+select  c_name, c_custkey  from  customer where  c_custkey = 17171 ;
+       c_name       | c_custkey 
+--------------------+-----------
+ Customer#000017171 |     17171
+(1 row)
+
+Time: 111.268 ms

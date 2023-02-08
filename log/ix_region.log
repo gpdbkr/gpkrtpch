@@ -1,0 +1,2 @@
+create index region_ix   on region  (R_REGIONKEY) ;
+CREATE INDEX

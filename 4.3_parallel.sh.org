@@ -1,0 +1,42 @@
+#!/bin/bash
+
+BMT_NO=$0
+LOGDIR=/data/gpkrtpch/log
+LOGFILE=$LOGDIR"/"$BMT_NO".log"
+mkdir -p $LOGDIR/4.3
+
+START_TM1=`date "+%Y-%m-%d %H:%M:%S"`
+echo "$0: START TIME : " $START_TM1
+
+###### query start
+. env.sh
+psql -U uadhoc -d gpkrtpch -ef /data/gpkrtpch/query/query01.sql > $LOGDIR"/4.3/query01.log" &
+psql -U uadhoc -d gpkrtpch -ef /data/gpkrtpch/query/query02.sql > $LOGDIR"/4.3/query02.log" &
+psql -U uadhoc -d gpkrtpch -ef /data/gpkrtpch/query/query03.sql > $LOGDIR"/4.3/query03.log" &
+psql -U uadhoc -d gpkrtpch -ef /data/gpkrtpch/query/query04.sql > $LOGDIR"/4.3/query04.log" &
+psql -U uadhoc -d gpkrtpch -ef /data/gpkrtpch/query/query05.sql > $LOGDIR"/4.3/query05.log" &
+psql -U uadhoc -d gpkrtpch -ef /data/gpkrtpch/query/query06.sql > $LOGDIR"/4.3/query06.log" &
+psql -U uadhoc -d gpkrtpch -ef /data/gpkrtpch/query/query07.sql > $LOGDIR"/4.3/query07.log" &
+psql -U uadhoc -d gpkrtpch -ef /data/gpkrtpch/query/query08.sql > $LOGDIR"/4.3/query08.log" &
+#psql -U uadhoc -d gpkrtpch -ef /data/gpkrtpch/query/query09.sql > $LOGDIR"/4.3/query09.log" &
+psql -U uadhoc -d gpkrtpch -ef /data/gpkrtpch/query/query10.sql > $LOGDIR"/4.3/query10.log" &
+psql -U uadhoc -d gpkrtpch -ef /data/gpkrtpch/query/query11.sql > $LOGDIR"/4.3/query11.log" &
+psql -U uadhoc -d gpkrtpch -ef /data/gpkrtpch/query/query12.sql > $LOGDIR"/4.3/query12.log" &
+psql -U uadhoc -d gpkrtpch -ef /data/gpkrtpch/query/query13.sql > $LOGDIR"/4.3/query13.log" &
+psql -U uadhoc -d gpkrtpch -ef /data/gpkrtpch/query/query14.sql > $LOGDIR"/4.3/query14.log" &
+psql -U uadhoc -d gpkrtpch -ef /data/gpkrtpch/query/query15.sql > $LOGDIR"/4.3/query15.log" &
+psql -U uadhoc -d gpkrtpch -ef /data/gpkrtpch/query/query16.sql > $LOGDIR"/4.3/query16.log" &
+psql -U uadhoc -d gpkrtpch -ef /data/gpkrtpch/query/query17.sql > $LOGDIR"/4.3/query17.log" &
+##psql -U uadhoc -d gpkrtpch -ef /data/gpkrtpch/query/query18.sql > $LOGDIR"/4.3/query18.log" &
+#psql -U uadhoc -d gpkrtpch -ef /data/gpkrtpch/query/query19.sql > $LOGDIR"/4.3/query19.log" &
+##psql -U uadhoc -d gpkrtpch -ef /data/gpkrtpch/query/query20.sql > $LOGDIR"/4.3/query20.log" &
+#psql -U uadhoc -d gpkrtpch -ef /data/gpkrtpch/query/query21.sql > $LOGDIR"/4.3/query21.log" &
+#psql -U uadhoc -d gpkrtpch -ef /data/gpkrtpch/query/query22.sql > $LOGDIR"/4.3/query22.log" &
+#psql -U uadhoc -d gpkrtpch -ef /data/gpkrtpch/query/query24.sql > $LOGDIR"/4.3/query24.log" &
+
+wait
+###### query end
+
+END_TM1=`date "+%Y-%m-%d %H:%M:%S"`
+echo $BMT_NO"|"$START_TM1"|"$END_TM1  >> $LOGFILE
+echo "$0: End TIME : "$END_TM1

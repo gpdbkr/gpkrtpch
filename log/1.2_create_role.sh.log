@@ -1,0 +1,110 @@
+Timing is on.
+/* Drop Object*/
+DROP SCHEMA IF EXISTS  gpkrtpch CASCADE;
+NOTICE:  schema "gpkrtpch" does not exist, skipping
+DROP SCHEMA
+Time: 5.113 ms
+DROP SCHEMA IF EXISTS  gpkrtpch_err CASCADE;
+NOTICE:  schema "gpkrtpch_err" does not exist, skipping
+DROP SCHEMA
+Time: 0.473 ms
+DROP RESOURCE GROUP rgoltp;
+ERROR:  resource group is used by at least one role
+Time: 0.247 ms
+DROP RESOURCE GROUP rgadhoc;
+ERROR:  resource group is used by at least one role
+Time: 0.148 ms
+DROP RESOURCE GROUP rgbatch;
+ERROR:  resource group is used by at least one role
+Time: 0.174 ms
+DROP ROLE IF EXISTS udba;
+DROP ROLE
+Time: 3.974 ms
+DROP ROLE IF EXISTS uadhoc;
+DROP ROLE
+Time: 1.449 ms
+DROP ROLE IF EXISTS uoltp;
+DROP ROLE
+Time: 1.138 ms
+DROP ROLE IF EXISTS uetl;
+DROP ROLE
+Time: 1.134 ms
+/* Resource Group */
+CREATE RESOURCE GROUP rgoltp WITH (concurrency=30, cpu_rate_limit=30, memory_limit=0);
+ERROR:  resource group "rgoltp" already exists
+Time: 0.239 ms
+CREATE RESOURCE GROUP rgadhoc WITH (concurrency=30, cpu_rate_limit=20, memory_limit=0);
+ERROR:  resource group "rgadhoc" already exists
+Time: 0.163 ms
+CREATE RESOURCE GROUP rgbatch WITH (concurrency=30, cpu_rate_limit=10, memory_limit=0);
+ERROR:  resource group "rgbatch" already exists
+Time: 0.206 ms
+/* Role */
+CREATE ROLE uoltp   LOGIN ENCRYPTED PASSWORD 'changeme' ;
+NOTICE:  resource queue required -- using default resource queue "pg_default"
+CREATE ROLE
+Time: 2.448 ms
+CREATE ROLE uadhoc  LOGIN ENCRYPTED PASSWORD 'changeme' ;
+NOTICE:  resource queue required -- using default resource queue "pg_default"
+CREATE ROLE
+Time: 1.209 ms
+CREATE ROLE udba    LOGIN ENCRYPTED PASSWORD 'changeme' ;
+NOTICE:  resource queue required -- using default resource queue "pg_default"
+CREATE ROLE
+Time: 1.181 ms
+CREATE ROLE uetl    LOGIN ENCRYPTED PASSWORD 'changeme' ;
+NOTICE:  resource queue required -- using default resource queue "pg_default"
+CREATE ROLE
+Time: 1.128 ms
+alter role udba with CREATEEXTTABLE;
+ALTER ROLE
+Time: 1.110 ms
+/* Assign role to resource group */
+alter role uoltp  resource group rgoltp;
+WARNING:  resource group is disabled
+HINT:  To enable set gp_resource_manager=group
+ALTER ROLE
+Time: 3.271 ms
+alter role uadhoc resource group rgadhoc;
+WARNING:  resource group is disabled
+HINT:  To enable set gp_resource_manager=group
+ALTER ROLE
+Time: 1.066 ms
+alter role udba   resource group rgbatch;
+WARNING:  resource group is disabled
+HINT:  To enable set gp_resource_manager=group
+ALTER ROLE
+Time: 1.090 ms
+alter role uetl   resource group rgbatch;
+WARNING:  resource group is disabled
+HINT:  To enable set gp_resource_manager=group
+ALTER ROLE
+Time: 1.067 ms
+/* Schema */
+CREATE SCHEMA gpkrtpch;
+CREATE SCHEMA
+Time: 1.579 ms
+CREATE SCHEMA gpkrtpch_err;
+CREATE SCHEMA
+Time: 1.105 ms
+/* Role Configuration */
+ALTER ROLE uoltp   SET search_path=gpkrtpch,gpkrtpch_err,public,pg_catalog;
+ALTER ROLE
+Time: 1.108 ms
+ALTER ROLE uadhoc  SET search_path=gpkrtpch,gpkrtpch_err,public,pg_catalog;
+ALTER ROLE
+Time: 1.112 ms
+ALTER ROLE udba    SET search_path=gpkrtpch,gpkrtpch_err,public,pg_catalog;
+ALTER ROLE
+Time: 0.976 ms
+/* Grant */
+GRANT ALL ON SCHEMA gpkrtpch, gpkrtpch_err TO uoltp ;
+GRANT
+Time: 1.267 ms
+GRANT ALL ON SCHEMA gpkrtpch, gpkrtpch_err TO uadhoc ;
+GRANT
+Time: 1.056 ms
+GRANT ALL ON SCHEMA gpkrtpch, gpkrtpch_err TO udba   ;
+GRANT
+Time: 1.070 ms
+./1.2_create_role.sh|2023-02-07 18:30:16|2023-02-07 18:30:16|0

@@ -1,0 +1,11 @@
+set gpcc.query_tags to 'appname=mstr';
+select  c_custkey, count(*) cnt  from  customer where  c_custkey in( 352828, 10030,20202,33332, 12822) group by 1 ;
+select p_size, count(*)  from part where p_partkey between 985750 and 985752 group by 1 order by 1;
+select l_orderkey, count(*) from    lineitem  where   l_orderkey = 223133 group by 1 ;
+select count(*) From nation where n_nationkey between 10 and 30 ;
+select * from orders where o_orderkey between  218393 and 218396 order by 1;
+select p_name,count(*) from part where p_partkey between 83938 and 83940 group by 1 order by 1;
+select l_orderkey, count(*) from    lineitem  where   l_orderkey = 39373 group by 1 ;
+select * from customer where c_custkey between 484709 and 484711 order by 1 ;
+select * From nation where n_name = 'USA' ;
+select s_nationkey, count(*) from supplier where s_suppkey between 8940 and 8944 group by 1 order by 1;

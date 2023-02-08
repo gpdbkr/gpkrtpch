@@ -1,0 +1,12 @@
+Timing is on.
+drop table if exists partsupp_batch;
+psql:/data/gpkrtpch/query/batch03.sql:1: NOTICE:  table "partsupp_batch" does not exist, skipping
+DROP TABLE
+Time: 22.919 ms
+create table partsupp_batch
+as
+select * from partsupp
+distributed randomly
+;
+SELECT 800000
+Time: 2247.195 ms

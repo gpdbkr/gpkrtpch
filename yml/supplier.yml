@@ -1,0 +1,35 @@
+VERSION: 1.0.0.1
+DATABASE: gpkrtpch
+USER: udba
+HOST: mdw
+PORT: 5432
+GPLOAD:
+    INPUT:
+     - SOURCE:
+          LOCAL_HOSTNAME:
+            - mdw
+          PORT_RANGE: [8081, 9081]
+          FILE: [ /data/gpkrtpch/data/supplier.tbl.gz ]
+     - COLUMNS:
+       - s_suppkey: integer
+       - s_name: character(25)
+       - s_address: character varying(40)
+       - s_nationkey: integer
+       - s_phone: character(15)
+       - s_acctbal: numeric(15,2)
+       - s_comment: character varying(101)
+     - FORMAT: text
+     - DELIMITER: '|'
+     - NULL_AS: '' 
+     - ERROR_LIMIT: 25
+    OUTPUT:
+     - TABLE: gpkrtpch.supplier
+     - MODE: INSERT 
+     - MAPPING: 
+        s_suppkey: s_suppkey
+        s_name: s_name
+        s_address: s_address
+        s_nationkey: s_nationkey
+        s_phone: s_phone
+        s_acctbal: s_acctbal
+        s_comment: s_comment

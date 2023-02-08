@@ -1,0 +1,12 @@
+Timing is on.
+drop table if exists supplier_batch;
+psql:/data/gpkrtpch/query/batch04.sql:1: NOTICE:  table "supplier_batch" does not exist, skipping
+DROP TABLE
+Time: 11.097 ms
+create table supplier_batch
+as
+select * from supplier
+distributed randomly
+;
+SELECT 10000
+Time: 181.226 ms

@@ -1,0 +1,68 @@
+Timing is on.
+select  c_name, count(*)  from  customer where  c_custkey = 97697  group by 1 order by 1;
+       c_name       | count 
+--------------------+-------
+ Customer#000097697 |     1
+(1 row)
+
+Time: 194.523 ms
+select s_phone, count(*) from supplier where s_suppkey between 75472 and 75476 group by 1 order by 1;
+ s_phone | count 
+---------+-------
+(0 rows)
+
+Time: 82.427 ms
+select  c_name, c_custkey  from  customer where  c_custkey = 125125 ;
+       c_name       | c_custkey 
+--------------------+-----------
+ Customer#000125125 |    125125
+(1 row)
+
+Time: 24.135 ms
+select s_acctbal, count(*) from supplier where s_suppkey between 68348 and 68360 group by 1 order by 1;
+ s_acctbal | count 
+-----------+-------
+(0 rows)
+
+Time: 71.555 ms
+select * from orders where o_orderkey between  724572 and 724576 order by 1;
+ o_orderkey | o_custkey | o_orderstatus | o_totalprice | o_orderdate | o_orderpriority |     o_clerk     | o_shippriority |                                 o_comment                                  
+------------+-----------+---------------+--------------+-------------+-----------------+-----------------+----------------+----------------------------------------------------------------------------
+     724576 |     37591 | F             |     92348.58 | 1999-06-10  | 2-HIGH          | Clerk#000000607 |              0 | silent foxes detect slyly slyly even ideas. pending instructions wake care
+     724576 |     37591 | F             |     92348.58 | 1992-06-10  | 2-HIGH          | Clerk#000000607 |              0 | silent foxes detect slyly slyly even ideas. pending instructions wake care
+     724576 |     37591 | F             |     92348.58 | 2006-06-10  | 2-HIGH          | Clerk#000000607 |              0 | silent foxes detect slyly slyly even ideas. pending instructions wake care
+(3 rows)
+
+Time: 65.246 ms
+select * from    lineitem  where   l_orderkey = 2346 ;
+ l_orderkey | l_partkey | l_suppkey | l_linenumber | l_quantity | l_extendedprice | l_discount | l_tax | l_returnflag | l_linestatus | l_shipdate | l_commitdate | l_receiptdate | l_shipinstruct | l_shipmode | l_comment 
+------------+-----------+-----------+--------------+------------+-----------------+------------+-------+--------------+--------------+------------+--------------+---------------+----------------+------------+-----------
+(0 rows)
+
+Time: 62.304 ms
+select * from    lineitem  where   l_orderkey = 121311 order by 1 ;
+ l_orderkey | l_partkey | l_suppkey | l_linenumber | l_quantity | l_extendedprice | l_discount | l_tax | l_returnflag | l_linestatus | l_shipdate | l_commitdate | l_receiptdate | l_shipinstruct | l_shipmode | l_comment 
+------------+-----------+-----------+--------------+------------+-----------------+------------+-------+--------------+--------------+------------+--------------+---------------+----------------+------------+-----------
+(0 rows)
+
+Time: 46.947 ms
+select  c_custkey, count(*) cnt   from  customer where  c_custkey = 47373 group by 1 order by 1;
+ c_custkey | cnt 
+-----------+-----
+     47373 |   1
+(1 row)
+
+Time: 44.810 ms
+select * from orders where o_orderkey between  71373 and 71375 order by 1;
+ o_orderkey | o_custkey | o_orderstatus | o_totalprice | o_orderdate | o_orderpriority | o_clerk | o_shippriority | o_comment 
+------------+-----------+---------------+--------------+-------------+-----------------+---------+----------------+-----------
+(0 rows)
+
+Time: 56.882 ms
+select count(*) from part where p_partkey between 317331 and 317335 order by 1;
+ count 
+-------
+     0
+(1 row)
+
+Time: 40.991 ms

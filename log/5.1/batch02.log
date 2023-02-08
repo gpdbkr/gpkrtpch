@@ -1,0 +1,11 @@
+Timing is on.
+drop table if exists part_batch;
+DROP TABLE
+Time: 561.993 ms
+create table part_batch
+as
+select * from part
+distributed randomly
+;
+SELECT 200000
+Time: 5310.185 ms

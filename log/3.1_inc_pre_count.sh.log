@@ -1,0 +1,43 @@
+Timing is on.
+select to_char(l_shipdate, 'yyyy') tm, count(*)
+from   gpkrtpch.lineitem
+group by 1
+order by 1;
+  tm  | count  
+------+--------
+ 1992 | 756352
+ 1993 | 908721
+ 1994 | 909455
+ 1995 | 914963
+ 1996 | 913487
+ 1997 | 911395
+ 1998 | 686842
+(7 rows)
+
+Time: 2297.124 ms
+select to_char(o_orderdate, 'yyyy') tm, count(*)
+from   gpkrtpch.orders
+group by 1
+order by 1;
+  tm  | count  
+------+--------
+ 1992 | 227089
+ 1993 | 226645
+ 1994 | 227597
+ 1995 | 228637
+ 1996 | 228626
+ 1997 | 227783
+ 1998 | 133623
+(7 rows)
+
+Time: 1130.397 ms
+select  ('19920101'::Date) + (trim(to_char(i*7, '99'))||'year')::interval
+from    generate_series(1,2) i;
+      ?column?       
+---------------------
+ 1999-01-01 00:00:00
+ 2006-01-01 00:00:00
+(2 rows)
+
+Time: 4.608 ms
+./3.1_inc_pre_count.sh|2023-02-07 18:30:57|2023-02-07 18:31:01|4

@@ -1,0 +1,45 @@
+Timing is on.
+select * From nation where n_name = 'CHINA' ;
+ n_nationkey |          n_name           | n_regionkey |                      n_comment                       
+-------------+---------------------------+-------------+------------------------------------------------------
+          18 | CHINA                     |           2 | bold accounts are. slyly ironic escapades haggle acc
+(1 row)
+
+Time: 135.401 ms
+select s_nationkey, count(*) from supplier where s_suppkey between 8657 and 8660 group by 1 order by 1;
+ s_nationkey | count 
+-------------+-------
+          12 |     2
+          15 |     1
+          24 |     1
+(3 rows)
+
+Time: 149.617 ms
+select s_name, count(*) from supplier where s_suppkey between 86575 and 86580 group by 1 order by 1;
+ s_name | count 
+--------+-------
+(0 rows)
+
+Time: 47.823 ms
+select  c_custkey, count(*) cnt  from  customer where  c_custkey in( 56436, 45645,56456,456, 64654) group by 1 ;
+ c_custkey | cnt 
+-----------+-----
+     56436 |   1
+     56456 |   1
+     64654 |   1
+       456 |   1
+     45645 |   1
+(5 rows)
+
+Time: 43.834 ms
+select p_size, count(*)  from part where p_partkey between 46546 and 46550 group by 1 order by 1;
+ p_size | count 
+--------+-------
+      1 |     1
+     26 |     1
+     32 |     1
+     41 |     1
+     43 |     1
+(5 rows)
+
+Time: 48.227 ms

@@ -1,0 +1,16 @@
+Timing is on.
+delete from dml06;
+DELETE 1
+Time: 16.951 ms
+insert into dml06
+select
+	sum(l_extendedprice * l_discount) as revenue
+from
+	lineitem
+where
+	l_shipdate >= date '1996-01-01'
+	and l_shipdate < date '1996-01-01' + interval '1 year'
+	and l_discount between 0.04 - 0.01 and 0.04 + 0.01
+	and l_quantity < 24;
+INSERT 0 1
+Time: 315.595 ms

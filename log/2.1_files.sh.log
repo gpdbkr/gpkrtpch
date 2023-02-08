@@ -1,0 +1,27 @@
+total 297488
+drwxr-xr-x 2 gpadmin gpadmin     4096 Feb  7 17:58 .
+drwxrwxr-x 7 gpadmin gpadmin     4096 Feb  7 17:58 ..
+-rw-r--r-- 1 gpadmin gpadmin  8939231 Feb  7 17:58 customer.tbl.gz
+-rw-r--r-- 1 gpadmin gpadmin 35855690 Feb  7 17:58 lineitem_01.tbl.gz
+-rw-r--r-- 1 gpadmin gpadmin 35872784 Feb  7 17:58 lineitem_02.tbl.gz
+-rw-r--r-- 1 gpadmin gpadmin 35870483 Feb  7 17:58 lineitem_03.tbl.gz
+-rw-r--r-- 1 gpadmin gpadmin 35870153 Feb  7 17:58 lineitem_04.tbl.gz
+-rw-r--r-- 1 gpadmin gpadmin 35869819 Feb  7 17:58 lineitem_05.tbl.gz
+-rw-r--r-- 1 gpadmin gpadmin 35871518 Feb  7 17:58 lineitem_06.tbl.gz
+-rw-r--r-- 1 gpadmin gpadmin    44906 Feb  7 17:58 lineitem_07.tbl.gz
+-rw-r--r-- 1 gpadmin gpadmin      929 Feb  7 17:58 nation.tbl.gz
+-rw-r--r-- 1 gpadmin gpadmin 30739136 Feb  7 17:58 orders_01.tbl.gz
+-rw-r--r-- 1 gpadmin gpadmin 15375036 Feb  7 17:58 orders_02.tbl.gz
+-rw-r--r-- 1 gpadmin gpadmin 28024343 Feb  7 17:58 partsupp.tbl.gz
+-rw-r--r-- 1 gpadmin gpadmin  5696082 Feb  7 17:58 part.tbl.gz
+-rw-r--r-- 1 gpadmin gpadmin      286 Feb  7 17:58 region.tbl.gz
+-rw-r--r-- 1 gpadmin gpadmin   560291 Feb  7 17:58 supplier.tbl.gz
+customer|150000
+lineitem|6001215
+nation|25
+orders|1500000
+partsupp|800000
+part|1000000
+region|5
+supplier|10000
+./2.1_files.sh|2023-02-07 18:30:16|2023-02-07 18:30:23|7

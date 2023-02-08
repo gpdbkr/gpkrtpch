@@ -1,0 +1,11 @@
+Timing is on.
+drop table if exists supplier_batch;
+DROP TABLE
+Time: 485.344 ms
+create table supplier_batch
+as
+select * from supplier
+distributed randomly
+;
+SELECT 10000
+Time: 1096.179 ms

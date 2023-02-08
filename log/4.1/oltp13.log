@@ -1,0 +1,67 @@
+Timing is on.
+select  c_name, c_custkey  from  customer where  c_custkey = 35421 ;
+       c_name       | c_custkey 
+--------------------+-----------
+ Customer#000035421 |     35421
+(1 row)
+
+Time: 128.073 ms
+select o_custkey, count(*) from orders where o_custkey = 243521    group by 1;
+ o_custkey | count 
+-----------+-------
+(0 rows)
+
+Time: 1171.743 ms
+select * From nation where n_name = 'SWISS' ;
+ n_nationkey | n_name | n_regionkey | n_comment 
+-------------+--------+-------------+-----------
+(0 rows)
+
+Time: 29.082 ms
+select * from    lineitem  where   l_orderkey = 35131 ;
+ l_orderkey | l_partkey | l_suppkey | l_linenumber | l_quantity | l_extendedprice | l_discount | l_tax | l_returnflag | l_linestatus | l_shipdate | l_commitdate | l_receiptdate | l_shipinstruct | l_shipmode | l_comment 
+------------+-----------+-----------+--------------+------------+-----------------+------------+-------+--------------+--------------+------------+--------------+---------------+----------------+------------+-----------
+(0 rows)
+
+Time: 91.890 ms
+select * from orders where o_orderkey between  4124 and 4126 order by 1;
+ o_orderkey | o_custkey | o_orderstatus | o_totalprice | o_orderdate | o_orderpriority | o_clerk | o_shippriority | o_comment 
+------------+-----------+---------------+--------------+-------------+-----------------+---------+----------------+-----------
+(0 rows)
+
+Time: 63.803 ms
+select o_custkey, count(*) from orders where o_custkey = 1435214 group by 1;
+ o_custkey | count 
+-----------+-------
+(0 rows)
+
+Time: 758.151 ms
+select * From nation where n_name = 'DENMARK' ;
+ n_nationkey | n_name | n_regionkey | n_comment 
+-------------+--------+-------------+-----------
+(0 rows)
+
+Time: 14.458 ms
+select p_partkey, count(*) from part where p_partkey between 75327 and 75330 group by 1 order by 1;
+ p_partkey | count 
+-----------+-------
+     75327 |     1
+     75328 |     1
+     75329 |     1
+     75330 |     1
+(4 rows)
+
+Time: 29.767 ms
+select c_acctbal, count(*) from customer where c_custkey between 643634 and 643638 group by 1  order by 1 ;
+ c_acctbal | count 
+-----------+-------
+(0 rows)
+
+Time: 38.566 ms
+select * From nation where n_nationkey = 8 ;
+ n_nationkey |          n_name           | n_regionkey |                                     n_comment                                      
+-------------+---------------------------+-------------+------------------------------------------------------------------------------------
+           8 | INDIA                     |           2 | ironic packages should have to are slyly around the special, ironic accounts. iron
+(1 row)
+
+Time: 3.217 ms

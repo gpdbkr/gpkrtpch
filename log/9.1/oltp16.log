@@ -1,0 +1,85 @@
+Timing is on.
+select p_size, count(*)  from part where p_partkey between 725346 and 725350 group by 1 order by 1;
+ p_size | count 
+--------+-------
+(0 rows)
+
+Time: 316.540 ms
+select * from orders where o_orderkey between  3253 and 3255 order by 1;
+ o_orderkey | o_custkey | o_orderstatus | o_totalprice | o_orderdate | o_orderpriority | o_clerk | o_shippriority | o_comment 
+------------+-----------+---------------+--------------+-------------+-----------------+---------+----------------+-----------
+(0 rows)
+
+Time: 72.091 ms
+select s_address, count(*) from supplier where s_suppkey between 643543 and 643545 group by 1 order by 1;
+ s_address | count 
+-----------+-------
+(0 rows)
+
+Time: 95.193 ms
+select c_address, count(*) from customer where c_custkey between 265443 and 265446 group by 1 order by 1 ;
+ c_address | count 
+-----------+-------
+(0 rows)
+
+Time: 55.479 ms
+select * from orders where o_orderkey between  46353 and 46357 order by 1;
+ o_orderkey | o_custkey | o_orderstatus | o_totalprice | o_orderdate | o_orderpriority | o_clerk | o_shippriority | o_comment 
+------------+-----------+---------------+--------------+-------------+-----------------+---------+----------------+-----------
+(0 rows)
+
+Time: 85.310 ms
+select  c_name, c_custkey  from  customer where  c_custkey in (34543, 3333, 123421) ;
+       c_name       | c_custkey 
+--------------------+-----------
+ Customer#000003333 |      3333
+ Customer#000034543 |     34543
+ Customer#000123421 |    123421
+(3 rows)
+
+Time: 16.583 ms
+select o_custkey, count(*) from orders where o_custkey = 13413 group by 1;
+ o_custkey | count 
+-----------+-------
+(0 rows)
+
+Time: 1255.443 ms
+select c_phone, count(*) from customer where c_custkey between 435243 and 435245 group by 1  order by 1 ;
+ c_phone | count 
+---------+-------
+(0 rows)
+
+Time: 20.883 ms
+select o_custkey, count(*) from orders where o_custkey = 456345 group by 1;
+ o_custkey | count 
+-----------+-------
+(0 rows)
+
+Time: 724.016 ms
+select * from    lineitem  where   l_orderkey = 745764 ;
+ l_orderkey | l_partkey | l_suppkey | l_linenumber | l_quantity | l_extendedprice | l_discount | l_tax | l_returnflag | l_linestatus | l_shipdate | l_commitdate | l_receiptdate |      l_shipinstruct       | l_shipmode |                 l_comment                  
+------------+-----------+-----------+--------------+------------+-----------------+------------+-------+--------------+--------------+------------+--------------+---------------+---------------------------+------------+--------------------------------------------
+     745764 |    199428 |      6986 |            1 |      40.00 |        61096.80 |       0.07 |  0.08 | N            | O            | 2010-05-30 | 1996-04-13   | 1996-06-07    | DELIVER IN PERSON         | FOB        | fluffily regular
+     745764 |    172790 |      7825 |            2 |      29.00 |        54020.91 |       0.02 |  0.03 | N            | O            | 2010-04-05 | 1996-04-18   | 1996-04-08    | COLLECT COD               | RAIL       | blithely special accounts cajole 
+     745764 |     72036 |      7051 |            3 |      32.00 |        32256.96 |       0.00 |  0.03 | N            | O            | 2010-04-05 | 1996-05-07   | 1996-04-25    | DELIVER IN PERSON         | SHIP       | furiously special 
+     745764 |     97653 |       163 |            4 |      24.00 |        39615.60 |       0.08 |  0.03 | N            | O            | 2010-04-16 | 1996-05-10   | 1996-05-04    | COLLECT COD               | RAIL       | carefully pending 
+     745764 |     39642 |      2146 |            5 |      43.00 |        68010.52 |       0.03 |  0.07 | N            | O            | 2010-03-03 | 1996-05-11   | 1996-03-29    | NONE                      | MAIL       | carefully regular excuses are against
+     745764 |     47474 |      4987 |            6 |      41.00 |        58280.27 |       0.07 |  0.03 | N            | O            | 2010-03-16 | 1996-03-29   | 1996-04-11    | TAKE BACK RETURN          | TRUCK      | furiously bold packages boost furious
+     745764 |     80066 |      5083 |            7 |      40.00 |        41842.40 |       0.09 |  0.08 | N            | O            | 2010-06-23 | 1996-05-09   | 1996-07-21    | TAKE BACK RETURN          | TRUCK      | deposits are blithely special ideas. fluff
+     745764 |    199428 |      6986 |            1 |      40.00 |        61096.80 |       0.07 |  0.08 | N            | O            | 1996-05-30 | 1996-04-13   | 1996-06-07    | DELIVER IN PERSON         | FOB        | fluffily regular
+     745764 |    172790 |      7825 |            2 |      29.00 |        54020.91 |       0.02 |  0.03 | N            | O            | 1996-04-05 | 1996-04-18   | 1996-04-08    | COLLECT COD               | RAIL       | blithely special accounts cajole 
+     745764 |     72036 |      7051 |            3 |      32.00 |        32256.96 |       0.00 |  0.03 | N            | O            | 1996-04-05 | 1996-05-07   | 1996-04-25    | DELIVER IN PERSON         | SHIP       | furiously special 
+     745764 |     97653 |       163 |            4 |      24.00 |        39615.60 |       0.08 |  0.03 | N            | O            | 1996-04-16 | 1996-05-10   | 1996-05-04    | COLLECT COD               | RAIL       | carefully pending 
+     745764 |     39642 |      2146 |            5 |      43.00 |        68010.52 |       0.03 |  0.07 | N            | O            | 1996-03-03 | 1996-05-11   | 1996-03-29    | NONE                      | MAIL       | carefully regular excuses are against
+     745764 |     47474 |      4987 |            6 |      41.00 |        58280.27 |       0.07 |  0.03 | N            | O            | 1996-03-16 | 1996-03-29   | 1996-04-11    | TAKE BACK RETURN          | TRUCK      | furiously bold packages boost furious
+     745764 |     80066 |      5083 |            7 |      40.00 |        41842.40 |       0.09 |  0.08 | N            | O            | 1996-06-23 | 1996-05-09   | 1996-07-21    | TAKE BACK RETURN          | TRUCK      | deposits are blithely special ideas. fluff
+     745764 |    199428 |      6986 |            1 |      40.00 |        61096.80 |       0.07 |  0.08 | N            | O            | 2003-05-30 | 1996-04-13   | 1996-06-07    | DELIVER IN PERSON         | FOB        | fluffily regular
+     745764 |    172790 |      7825 |            2 |      29.00 |        54020.91 |       0.02 |  0.03 | N            | O            | 2003-04-05 | 1996-04-18   | 1996-04-08    | COLLECT COD               | RAIL       | blithely special accounts cajole 
+     745764 |     72036 |      7051 |            3 |      32.00 |        32256.96 |       0.00 |  0.03 | N            | O            | 2003-04-05 | 1996-05-07   | 1996-04-25    | DELIVER IN PERSON         | SHIP       | furiously special 
+     745764 |     97653 |       163 |            4 |      24.00 |        39615.60 |       0.08 |  0.03 | N            | O            | 2003-04-16 | 1996-05-10   | 1996-05-04    | COLLECT COD               | RAIL       | carefully pending 
+     745764 |     39642 |      2146 |            5 |      43.00 |        68010.52 |       0.03 |  0.07 | N            | O            | 2003-03-03 | 1996-05-11   | 1996-03-29    | NONE                      | MAIL       | carefully regular excuses are against
+     745764 |     47474 |      4987 |            6 |      41.00 |        58280.27 |       0.07 |  0.03 | N            | O            | 2003-03-16 | 1996-03-29   | 1996-04-11    | TAKE BACK RETURN          | TRUCK      | furiously bold packages boost furious
+     745764 |     80066 |      5083 |            7 |      40.00 |        41842.40 |       0.09 |  0.08 | N            | O            | 2003-06-23 | 1996-05-09   | 1996-07-21    | TAKE BACK RETURN          | TRUCK      | deposits are blithely special ideas. fluff
+(21 rows)
+
+Time: 39.134 ms

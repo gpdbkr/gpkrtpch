@@ -1,0 +1,40 @@
+VERSION: 1.0.0.1
+DATABASE: gpkrtpch
+USER: udba
+HOST: mdw
+PORT: 5432
+GPLOAD:
+    INPUT:
+     - SOURCE:
+          LOCAL_HOSTNAME:
+            - mdw
+          PORT_RANGE: [8081, 9081]
+          FILE: [ /data/gpkrtpch/data/orders*.tbl.gz ]
+     - COLUMNS:
+       - o_orderkey: bigint
+       - o_custkey: integer
+       - o_orderstatus: character(1)
+       - o_totalprice: numeric(15,2)
+       - o_orderdate: date
+       - o_orderpriority: character(15)
+       - o_clerk: character(15)
+       - o_shippriority: integer
+       - o_comment: character varying(79)
+     - FORMAT: text
+     - DELIMITER: '|'
+     - NULL_AS: '' 
+     - ERROR_LIMIT: 25
+     - LOG_ERRORS: true
+    OUTPUT:
+     - TABLE: gpkrtpch.orders
+     - MODE: INSERT 
+     - MAPPING: 
+        o_orderkey: o_orderkey
+        o_custkey: o_custkey
+        o_orderstatus: o_orderstatus
+        o_totalprice: o_totalprice
+        o_orderdate: o_orderdate
+        o_orderpriority: o_orderpriority
+        o_clerk: o_clerk
+        o_shippriority: o_shippriority
+        o_comment: o_comment

@@ -1,0 +1,11 @@
+Timing is on.
+drop table if exists customer_batch;
+DROP TABLE
+Time: 584.248 ms
+create table customer_batch
+as
+select * from customer
+distributed randomly
+;
+SELECT 150000
+Time: 3911.894 ms

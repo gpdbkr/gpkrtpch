@@ -1,0 +1,12 @@
+Timing is on.
+drop table if exists customer_batch;
+psql:/data/gpkrtpch/query/batch01.sql:1: NOTICE:  table "customer_batch" does not exist, skipping
+DROP TABLE
+Time: 53.525 ms
+create table customer_batch
+as
+select * from customer
+distributed randomly
+;
+SELECT 150000
+Time: 1024.874 ms

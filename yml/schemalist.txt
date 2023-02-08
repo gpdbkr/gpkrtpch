@@ -1,0 +1,10 @@
+nation
+region
+part
+supplier
+partsupp
+customer
+customer_com_row
+customer_com_col
+lineitem
+orders

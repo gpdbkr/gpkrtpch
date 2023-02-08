@@ -1,0 +1,275 @@
+Timing is on.
+CREATE TABLE gpkrtpch.NATION  
+( 
+    N_NATIONKEY  INTEGER NOT NULL,
+    N_NAME       CHAR(25) NOT NULL,
+    N_REGIONKEY  INTEGER NOT NULL,
+    N_COMMENT    VARCHAR(152)
+)
+DISTRIBUTED BY(N_NATIONKEY);
+CREATE TABLE
+Time: 11.471 ms
+CREATE TABLE gpkrtpch.REGION  
+( 
+    R_REGIONKEY  INTEGER NOT NULL,
+    R_NAME       CHAR(25) NOT NULL,
+    R_COMMENT    VARCHAR(152)
+)
+DISTRIBUTED BY(R_REGIONKEY);
+CREATE TABLE
+Time: 2.341 ms
+CREATE TABLE gpkrtpch.PART  
+( 
+    P_PARTKEY     INTEGER NOT NULL,
+    P_NAME        VARCHAR(55) NOT NULL,
+    P_MFGR        CHAR(25) NOT NULL,
+    P_BRAND       CHAR(10) NOT NULL,
+    P_TYPE        VARCHAR(25) NOT NULL,
+    P_SIZE        INTEGER NOT NULL,
+    P_CONTAINER   CHAR(10) NOT NULL,
+    P_RETAILPRICE NUMERIC(15,2) NOT NULL,
+    P_COMMENT     VARCHAR(23) NOT NULL 
+)
+DISTRIBUTED BY(P_PARTKEY);
+CREATE TABLE
+Time: 2.136 ms
+;
+Time: 0.166 ms
+CREATE TABLE gpkrtpch.SUPPLIER 
+(   
+    S_SUPPKEY     INTEGER NOT NULL,
+    S_NAME        CHAR(25) NOT NULL,
+    S_ADDRESS     VARCHAR(40) NOT NULL,
+    S_NATIONKEY   INTEGER NOT NULL,
+    S_PHONE       CHAR(15) NOT NULL,
+    S_ACCTBAL     NUMERIC(15,2) NOT NULL,
+    S_COMMENT     VARCHAR(101) NOT NULL
+)
+DISTRIBUTED BY(S_SUPPKEY);
+CREATE TABLE
+Time: 2.151 ms
+;
+Time: 0.134 ms
+CREATE TABLE gpkrtpch.PARTSUPP 
+( 
+    PS_PARTKEY     INTEGER NOT NULL,
+    PS_SUPPKEY     INTEGER NOT NULL,
+    PS_AVAILQTY    INTEGER NOT NULL,
+    PS_SUPPLYCOST  NUMERIC(15,2)  NOT NULL,
+    PS_COMMENT     VARCHAR(199) NOT NULL 
+)
+WITH (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib) 
+DISTRIBUTED BY(PS_PARTKEY)
+;
+CREATE TABLE
+Time: 7.398 ms
+CREATE TABLE gpkrtpch.CUSTOMER 
+( 
+    C_CUSTKEY     INTEGER NOT NULL,
+    C_NAME        VARCHAR(25) NOT NULL,
+    C_ADDRESS     VARCHAR(40) NOT NULL,
+    C_NATIONKEY   INTEGER NOT NULL,
+    C_PHONE       CHAR(15) NOT NULL,
+    C_ACCTBAL     NUMERIC(15,2)   NOT NULL,
+    C_MKTSEGMENT  CHAR(10) NOT NULL,
+    C_COMMENT     VARCHAR(117) NOT NULL
+)
+DISTRIBUTED BY(C_CUSTKEY)
+;
+CREATE TABLE
+Time: 3.400 ms
+CREATE TABLE gpkrtpch.ORDERS  
+( 
+    O_ORDERKEY       INT8 NOT NULL,
+    O_CUSTKEY        INTEGER NOT NULL,
+    O_ORDERSTATUS    CHAR(1) NOT NULL,
+    O_TOTALPRICE     NUMERIC(15,2) NOT NULL,
+    O_ORDERDATE      DATE NOT NULL,
+    O_ORDERPRIORITY  CHAR(15) NOT NULL,
+    O_CLERK          CHAR(15) NOT NULL,
+    O_SHIPPRIORITY   INTEGER NOT NULL,
+    O_COMMENT        VARCHAR(79) NOT NULL
+) 
+with (appendonly=true)
+DISTRIBUTED BY(O_ORDERKEY)
+partition by range(o_orderdate)
+(
+partition p1992 start('1992-01-01') end ('1993-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib), 
+partition p1993 start('1993-01-01') end ('1994-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
+partition p1994 start('1994-01-01') end ('1995-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
+partition p1995 start('1995-01-01') end ('1996-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
+partition p1996 start('1996-01-01') end ('1997-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
+partition p1997 start('1997-01-01') end ('1998-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
+partition p1998 start('1998-01-01') end ('1999-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
+partition p1999 start('1999-01-01') end ('2001-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
+partition p2001 start('2001-01-01') end ('2002-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
+partition p2002 start('2002-01-01') end ('2003-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
+partition p2003 start('2003-01-01') end ('2004-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
+partition p2004 start('2004-01-01') end ('2005-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
+partition p2005 start('2005-01-01') end ('2006-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
+partition p2006 start('2006-01-01') end ('2007-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
+partition p2007 start('2007-01-01') end ('2008-01-01') ,
+partition p2008 start('2008-01-01') end ('2009-01-01') ,
+partition p2009 start('2009-01-01') end ('2010-01-01') ,
+partition p2010 start('2010-01-01') end ('2011-01-01') ,
+partition p2011 start('2011-01-01') end ('2012-01-01') ,
+partition p2012 start('2012-01-01') end ('2013-01-01') ,
+partition p2013 start('2013-01-01') end ('2014-01-01') ,
+  DEFAULT PARTITION pother 
+);
+NOTICE:  CREATE TABLE will create partition "orders_1_prt_pother" for table "orders"
+NOTICE:  CREATE TABLE will create partition "orders_1_prt_p1992" for table "orders"
+NOTICE:  CREATE TABLE will create partition "orders_1_prt_p1993" for table "orders"
+NOTICE:  CREATE TABLE will create partition "orders_1_prt_p1994" for table "orders"
+NOTICE:  CREATE TABLE will create partition "orders_1_prt_p1995" for table "orders"
+NOTICE:  CREATE TABLE will create partition "orders_1_prt_p1996" for table "orders"
+NOTICE:  CREATE TABLE will create partition "orders_1_prt_p1997" for table "orders"
+NOTICE:  CREATE TABLE will create partition "orders_1_prt_p1998" for table "orders"
+NOTICE:  CREATE TABLE will create partition "orders_1_prt_p1999" for table "orders"
+NOTICE:  CREATE TABLE will create partition "orders_1_prt_p2001" for table "orders"
+NOTICE:  CREATE TABLE will create partition "orders_1_prt_p2002" for table "orders"
+NOTICE:  CREATE TABLE will create partition "orders_1_prt_p2003" for table "orders"
+NOTICE:  CREATE TABLE will create partition "orders_1_prt_p2004" for table "orders"
+NOTICE:  CREATE TABLE will create partition "orders_1_prt_p2005" for table "orders"
+NOTICE:  CREATE TABLE will create partition "orders_1_prt_p2006" for table "orders"
+NOTICE:  CREATE TABLE will create partition "orders_1_prt_p2007" for table "orders"
+NOTICE:  CREATE TABLE will create partition "orders_1_prt_p2008" for table "orders"
+NOTICE:  CREATE TABLE will create partition "orders_1_prt_p2009" for table "orders"
+NOTICE:  CREATE TABLE will create partition "orders_1_prt_p2010" for table "orders"
+NOTICE:  CREATE TABLE will create partition "orders_1_prt_p2011" for table "orders"
+NOTICE:  CREATE TABLE will create partition "orders_1_prt_p2012" for table "orders"
+NOTICE:  CREATE TABLE will create partition "orders_1_prt_p2013" for table "orders"
+CREATE TABLE
+Time: 137.677 ms
+CREATE TABLE gpkrtpch.LINEITEM 
+(   L_ORDERKEY    INT8 NOT NULL,
+    L_PARTKEY     INTEGER NOT NULL,
+    L_SUPPKEY     INTEGER NOT NULL,
+    L_LINENUMBER  INTEGER NOT NULL,
+    L_QUANTITY    NUMERIC(15,2) NOT NULL,
+    L_EXTENDEDPRICE  NUMERIC(15,2) NOT NULL,
+    L_DISCOUNT    NUMERIC(15,2) NOT NULL,
+    L_TAX         NUMERIC(15,2) NOT NULL,
+    L_RETURNFLAG  CHAR(1) NOT NULL,
+    L_LINESTATUS  CHAR(1) NOT NULL,
+    L_SHIPDATE    DATE NOT NULL,
+    L_COMMITDATE  DATE NOT NULL,
+    L_RECEIPTDATE DATE NOT NULL,
+    L_SHIPINSTRUCT CHAR(25) NOT NULL,
+    L_SHIPMODE     CHAR(10) NOT NULL,
+    L_COMMENT      VARCHAR(44) NOT NULL
+) 
+with (appendonly=true)
+DISTRIBUTED BY(L_ORDERKEY)
+partition by range (l_shipdate)
+(
+partition p1992 start('1992-01-01') end ('1993-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib), 
+partition p1993 start('1993-01-01') end ('1994-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
+partition p1994 start('1994-01-01') end ('1995-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
+partition p1995 start('1995-01-01') end ('1996-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
+partition p1996 start('1996-01-01') end ('1997-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
+partition p1997 start('1997-01-01') end ('1998-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
+partition p1998 start('1998-01-01') end ('1999-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
+partition p1999 start('1999-01-01') end ('2001-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
+partition p2001 start('2001-01-01') end ('2002-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
+partition p2002 start('2002-01-01') end ('2003-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
+partition p2003 start('2003-01-01') end ('2004-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
+partition p2004 start('2004-01-01') end ('2005-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
+partition p2005 start('2005-01-01') end ('2006-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
+partition p2006 start('2006-01-01') end ('2007-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
+partition p2007 start('2007-01-01') end ('2008-01-01') ,
+partition p2008 start('2008-01-01') end ('2009-01-01') ,
+partition p2009 start('2009-01-01') end ('2010-01-01') ,
+partition p2010 start('2010-01-01') end ('2011-01-01') ,
+partition p2011 start('2011-01-01') end ('2012-01-01') ,
+partition p2012 start('2012-01-01') end ('2013-01-01') ,
+partition p2013 start('2013-01-01') end ('2014-01-01') ,
+  DEFAULT PARTITION pother 
+);
+NOTICE:  CREATE TABLE will create partition "lineitem_1_prt_pother" for table "lineitem"
+NOTICE:  CREATE TABLE will create partition "lineitem_1_prt_p1992" for table "lineitem"
+NOTICE:  CREATE TABLE will create partition "lineitem_1_prt_p1993" for table "lineitem"
+NOTICE:  CREATE TABLE will create partition "lineitem_1_prt_p1994" for table "lineitem"
+NOTICE:  CREATE TABLE will create partition "lineitem_1_prt_p1995" for table "lineitem"
+NOTICE:  CREATE TABLE will create partition "lineitem_1_prt_p1996" for table "lineitem"
+NOTICE:  CREATE TABLE will create partition "lineitem_1_prt_p1997" for table "lineitem"
+NOTICE:  CREATE TABLE will create partition "lineitem_1_prt_p1998" for table "lineitem"
+NOTICE:  CREATE TABLE will create partition "lineitem_1_prt_p1999" for table "lineitem"
+NOTICE:  CREATE TABLE will create partition "lineitem_1_prt_p2001" for table "lineitem"
+NOTICE:  CREATE TABLE will create partition "lineitem_1_prt_p2002" for table "lineitem"
+NOTICE:  CREATE TABLE will create partition "lineitem_1_prt_p2003" for table "lineitem"
+NOTICE:  CREATE TABLE will create partition "lineitem_1_prt_p2004" for table "lineitem"
+NOTICE:  CREATE TABLE will create partition "lineitem_1_prt_p2005" for table "lineitem"
+NOTICE:  CREATE TABLE will create partition "lineitem_1_prt_p2006" for table "lineitem"
+NOTICE:  CREATE TABLE will create partition "lineitem_1_prt_p2007" for table "lineitem"
+NOTICE:  CREATE TABLE will create partition "lineitem_1_prt_p2008" for table "lineitem"
+NOTICE:  CREATE TABLE will create partition "lineitem_1_prt_p2009" for table "lineitem"
+NOTICE:  CREATE TABLE will create partition "lineitem_1_prt_p2010" for table "lineitem"
+NOTICE:  CREATE TABLE will create partition "lineitem_1_prt_p2011" for table "lineitem"
+NOTICE:  CREATE TABLE will create partition "lineitem_1_prt_p2012" for table "lineitem"
+NOTICE:  CREATE TABLE will create partition "lineitem_1_prt_p2013" for table "lineitem"
+CREATE TABLE
+Time: 116.549 ms
+CREATE TABLE gpkrtpch.CUSTOMER_COM_ROW 
+( 
+    C_CUSTKEY     INTEGER NOT NULL,
+    C_NAME        VARCHAR(25) NOT NULL,
+    C_ADDRESS     VARCHAR(40) NOT NULL,
+    C_NATIONKEY   INTEGER NOT NULL,
+    C_PHONE       CHAR(15) NOT NULL,
+    C_ACCTBAL     NUMERIC(15,2)   NOT NULL,
+    C_MKTSEGMENT  CHAR(10) NOT NULL,
+    C_COMMENT     VARCHAR(117) NOT NULL
+)
+WITH (appendonly=true, compresstype=zlib, compresslevel=1)
+DISTRIBUTED BY(C_CUSTKEY)
+;
+CREATE TABLE
+Time: 4.903 ms
+CREATE TABLE gpkrtpch.CUSTOMER_COM_COL 
+( 
+    C_CUSTKEY     INTEGER NOT NULL,
+    C_NAME        VARCHAR(25) NOT NULL,
+    C_ADDRESS     VARCHAR(40) NOT NULL,
+    C_NATIONKEY   INTEGER NOT NULL,
+    C_PHONE       CHAR(15) NOT NULL,
+    C_ACCTBAL     NUMERIC(15,2)   NOT NULL,
+    C_MKTSEGMENT  CHAR(10) NOT NULL,
+    C_COMMENT     VARCHAR(117) NOT NULL
+)
+WITH (appendonly=true, compresstype=zlib, compresslevel=1, orientation=column)
+DISTRIBUTED BY(C_CUSTKEY)
+;
+CREATE TABLE
+Time: 4.655 ms
+grant all on gpkrtpch.nation to udba,uadhoc,uoltp;
+GRANT
+Time: 1.305 ms
+grant all on gpkrtpch.region to udba,uadhoc,uoltp;
+GRANT
+Time: 1.153 ms
+grant all on gpkrtpch.part to udba,uadhoc,uoltp;
+GRANT
+Time: 1.069 ms
+grant all on gpkrtpch.supplier to udba,uadhoc,uoltp;
+GRANT
+Time: 1.189 ms
+grant all on gpkrtpch.partsupp to udba,uadhoc,uoltp;
+GRANT
+Time: 1.156 ms
+grant all on gpkrtpch.customer to udba,uadhoc,uoltp;
+GRANT
+Time: 1.263 ms
+grant all on gpkrtpch.customer_com_row to udba,uadhoc,uoltp;
+GRANT
+Time: 1.173 ms
+grant all on gpkrtpch.customer_com_col to udba,uadhoc,uoltp;
+GRANT
+Time: 1.186 ms
+grant all on gpkrtpch.lineitem to udba,uadhoc,uoltp;
+GRANT
+Time: 3.079 ms
+grant all on gpkrtpch.orders to udba,uadhoc,uoltp;
+GRANT
+Time: 2.543 ms
+./1.3_create_tb.sh|2023-02-07 18:30:16|2023-02-07 18:30:16|0

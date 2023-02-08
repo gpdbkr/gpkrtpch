@@ -1,0 +1,121 @@
+Timing is on.
+select c_address, count(*) from customer where c_custkey between 19587 and 19587 group by 1 order by 1 ;
+        c_address         | count 
+--------------------------+-------
+ yuboKVj0JRVnKjGcpLYcdXDK |     1
+(1 row)
+
+Time: 298.107 ms
+select * from orders where o_orderkey between  1322 and 1380 order by 1;
+ o_orderkey | o_custkey | o_orderstatus | o_totalprice | o_orderdate | o_orderpriority |     o_clerk     | o_shippriority |                                  o_comment                                  
+------------+-----------+---------------+--------------+-------------+-----------------+-----------------+----------------+-----------------------------------------------------------------------------
+       1344 |     16990 | F             |     67233.49 | 2006-04-16  | 5-LOW           | Clerk#000000178 |              0 | slyly regular accounts affix furiously abov
+       1344 |     16990 | F             |     67233.49 | 1992-04-16  | 5-LOW           | Clerk#000000178 |              0 | slyly regular accounts affix furiously abov
+       1344 |     16990 | F             |     67233.49 | 1999-04-16  | 5-LOW           | Clerk#000000178 |              0 | slyly regular accounts affix furiously abov
+       1345 |     94207 | F             |    145703.02 | 1999-10-28  | 5-LOW           | Clerk#000000447 |              0 | regular deposits on the final depo
+       1345 |     94207 | F             |    145703.02 | 2006-10-28  | 5-LOW           | Clerk#000000447 |              0 | regular deposits on the final depo
+       1345 |     94207 | F             |    145703.02 | 1992-10-28  | 5-LOW           | Clerk#000000447 |              0 | regular deposits on the final depo
+       1346 |     74749 | F             |    212488.52 | 2006-06-18  | 2-HIGH          | Clerk#000000374 |              0 | ironic, final platelets cajole furiously dep
+       1346 |     74749 | F             |    212488.52 | 1992-06-18  | 2-HIGH          | Clerk#000000374 |              0 | ironic, final platelets cajole furiously dep
+       1346 |     74749 | F             |    212488.52 | 1999-06-18  | 2-HIGH          | Clerk#000000374 |              0 | ironic, final platelets cajole furiously dep
+       1347 |     40270 | O             |    226083.68 | 1997-06-20  | 5-LOW           | Clerk#000000977 |              0 | carefully bold deposits wake! bold requests sleep. furiously express t
+       1347 |     40270 | O             |    226083.68 | 2004-06-20  | 5-LOW           | Clerk#000000977 |              0 | carefully bold deposits wake! bold requests sleep. furiously express t
+       1347 |     40270 | O             |    226083.68 | 2011-06-20  | 5-LOW           | Clerk#000000977 |              0 | carefully bold deposits wake! bold requests sleep. furiously express t
+       1348 |     17345 | O             |    143342.43 | 2012-04-18  | 5-LOW           | Clerk#000000206 |              0 | special instructions haggle after the blithely specia
+       1348 |     17345 | O             |    143342.43 | 1998-04-18  | 5-LOW           | Clerk#000000206 |              0 | special instructions haggle after the blithely specia
+       1348 |     17345 | O             |    143342.43 | 2005-04-18  | 5-LOW           | Clerk#000000206 |              0 | special instructions haggle after the blithely specia
+       1349 |     63691 | O             |     77455.85 | 2004-10-26  | 1-URGENT        | Clerk#000000543 |              0 | carefully even deposits breach carefully. 
+       1349 |     63691 | O             |     77455.85 | 2011-10-26  | 1-URGENT        | Clerk#000000543 |              0 | carefully even deposits breach carefully. 
+       1349 |     63691 | O             |     77455.85 | 1997-10-26  | 1-URGENT        | Clerk#000000543 |              0 | carefully even deposits breach carefully. 
+       1350 |     50701 | F             |     82352.77 | 2000-08-24  | 1-URGENT        | Clerk#000000635 |              0 | quiet, quick packages haggle deposits. r
+       1350 |     50701 | F             |     82352.77 | 1993-08-24  | 1-URGENT        | Clerk#000000635 |              0 | quiet, quick packages haggle deposits. r
+       1350 |     50701 | F             |     82352.77 | 2007-08-24  | 1-URGENT        | Clerk#000000635 |              0 | quiet, quick packages haggle deposits. r
+       1351 |    105941 | O             |     30164.33 | 2012-04-20  | 1-URGENT        | Clerk#000000012 |              0 | carefully final ideas haggle. ironic foxes around the regular, brave accoun
+       1351 |    105941 | O             |     30164.33 | 2005-04-20  | 1-URGENT        | Clerk#000000012 |              0 | carefully final ideas haggle. ironic foxes around the regular, brave accoun
+       1351 |    105941 | O             |     30164.33 | 1998-04-20  | 1-URGENT        | Clerk#000000012 |              0 | carefully final ideas haggle. ironic foxes around the regular, brave accoun
+       1376 |     46036 | O             |     35815.36 | 1997-05-04  | 4-NOT SPECIFIED | Clerk#000000730 |              0 | ironic gifts are quickly furiously re
+       1376 |     46036 | O             |     35815.36 | 2004-05-04  | 4-NOT SPECIFIED | Clerk#000000730 |              0 | ironic gifts are quickly furiously re
+       1376 |     46036 | O             |     35815.36 | 2011-05-04  | 4-NOT SPECIFIED | Clerk#000000730 |              0 | ironic gifts are quickly furiously re
+       1377 |     19717 | O             |    141575.94 | 2012-04-24  | 4-NOT SPECIFIED | Clerk#000000625 |              0 | pinto beans poach furiously sl
+       1377 |     19717 | O             |    141575.94 | 1998-04-24  | 4-NOT SPECIFIED | Clerk#000000625 |              0 | pinto beans poach furiously sl
+       1377 |     19717 | O             |    141575.94 | 2005-04-24  | 4-NOT SPECIFIED | Clerk#000000625 |              0 | pinto beans poach furiously sl
+       1378 |     19532 | O             |    159202.17 | 2010-03-09  | 4-NOT SPECIFIED | Clerk#000000705 |              0 | quiet requests according to the slyly spec
+       1378 |     19532 | O             |    159202.17 | 1996-03-09  | 4-NOT SPECIFIED | Clerk#000000705 |              0 | quiet requests according to the slyly spec
+       1378 |     19532 | O             |    159202.17 | 2003-03-09  | 4-NOT SPECIFIED | Clerk#000000705 |              0 | quiet requests according to the slyly spec
+       1379 |     64160 | O             |    109341.27 | 2012-05-25  | 5-LOW           | Clerk#000000861 |              0 | platelets haggle ac
+       1379 |     64160 | O             |    109341.27 | 2005-05-25  | 5-LOW           | Clerk#000000861 |              0 | platelets haggle ac
+       1379 |     64160 | O             |    109341.27 | 1998-05-25  | 5-LOW           | Clerk#000000861 |              0 | platelets haggle ac
+       1380 |    136237 | O             |    164979.12 | 2010-07-07  | 3-MEDIUM        | Clerk#000000969 |              0 | quickly brave pinto beans above the idea
+       1380 |    136237 | O             |    164979.12 | 1996-07-07  | 3-MEDIUM        | Clerk#000000969 |              0 | quickly brave pinto beans above the idea
+       1380 |    136237 | O             |    164979.12 | 2003-07-07  | 3-MEDIUM        | Clerk#000000969 |              0 | quickly brave pinto beans above the idea
+(39 rows)
+
+Time: 272.424 ms
+select  c_name, c_custkey  from  customer where  c_custkey in (9370, 5657, 915356) ;
+       c_name       | c_custkey 
+--------------------+-----------
+ Customer#000009370 |      9370
+ Customer#000005657 |      5657
+(2 rows)
+
+Time: 64.525 ms
+select o_custkey, count(*) from orders where o_custkey = 16262633 group by 1;
+ o_custkey | count 
+-----------+-------
+(0 rows)
+
+Time: 1114.843 ms
+select c_phone, count(*) from customer where c_custkey between 9837766 and 9837768 group by 1  order by 1 ;
+ c_phone | count 
+---------+-------
+(0 rows)
+
+Time: 57.930 ms
+select o_custkey, count(*) from orders where o_custkey = 885366 group by 1;
+ o_custkey | count 
+-----------+-------
+(0 rows)
+
+Time: 647.359 ms
+select * from    lineitem  where   l_orderkey = 83734 ;
+ l_orderkey | l_partkey | l_suppkey | l_linenumber | l_quantity | l_extendedprice | l_discount | l_tax | l_returnflag | l_linestatus | l_shipdate | l_commitdate | l_receiptdate | l_shipinstruct | l_shipmode | l_comment 
+------------+-----------+-----------+--------------+------------+-----------------+------------+-------+--------------+--------------+------------+--------------+---------------+----------------+------------+-----------
+(0 rows)
+
+Time: 28.448 ms
+select * From nation where n_name = 'MOROCCO' ;
+ n_nationkey |          n_name           | n_regionkey |                             n_comment                             
+-------------+---------------------------+-------------+-------------------------------------------------------------------
+          15 | MOROCCO                   |           0 | ideas according to the fluffily final pinto beans sleep furiously
+(1 row)
+
+Time: 5.719 ms
+select s_nationkey, count(*) from supplier where s_suppkey between 2211 and 2233 group by 1 order by 1;
+ s_nationkey | count 
+-------------+-------
+           2 |     1
+           3 |     1
+           5 |     3
+           6 |     1
+           7 |     1
+           9 |     1
+          11 |     2
+          12 |     1
+          13 |     2
+          14 |     1
+          16 |     2
+          17 |     1
+          18 |     1
+          19 |     1
+          20 |     1
+          21 |     2
+          22 |     1
+(17 rows)
+
+Time: 30.389 ms
+select s_name, count(*) from supplier where s_suppkey between 66910 and 66915 group by 1 order by 1;
+ s_name | count 
+--------+-------
+(0 rows)
+
+Time: 26.026 ms

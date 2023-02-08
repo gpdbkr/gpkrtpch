@@ -1,0 +1,2 @@
+create index l_orderkey_ix on lineitem(l_orderkey);
+CREATE INDEX

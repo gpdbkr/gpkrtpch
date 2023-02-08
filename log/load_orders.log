@@ -1,0 +1,24 @@
+2023-02-07 18:30:23|INFO|gpload session started 2023-02-07 18:30:23
+2023-02-07 18:30:23|LOG|trying to run gpfdist -p 8081 -P 9081 -f "/data/gpkrtpch/data/orders*.tbl.gz" -t 30 -v
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21591 INFO Before opening listening sockets - following listening sockets are available:
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21591 INFO IPV6 socket: [::]:8081
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21591 INFO IPV4 socket: 0.0.0.0:8081
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21591 INFO Trying to open listening socket:
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21591 INFO IPV6 socket: [::]:8081
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21591 INFO Opening listening socket succeeded
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21591 INFO Trying to open listening socket:
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21591 INFO IPV4 socket: 0.0.0.0:8081
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21591 INFO Opening listening socket succeeded
+2023-02-07 18:30:24|LOG|gpfdist says: Serving HTTP on port 8081, directory /data/gpkrtpch
+2023-02-07 18:30:24|INFO|started gpfdist -p 8081 -P 9081 -f "/data/gpkrtpch/data/orders*.tbl.gz" -t 30 -v
+2023-02-07 18:30:24|LOG|gpfdist is running on port 8081
+2023-02-07 18:30:24|LOG|INSERT INTO "gpkrtpch"."orders" ("o_orderkey","o_custkey","o_orderstatus","o_totalprice","o_orderdate","o_orderpriority","o_clerk","o_shippriority","o_comment") SELECT o_orderkey,o_custkey,o_orderstatus,o_totalprice,o_orderdate,o_orderpriority,o_clerk,o_shippriority,o_comment FROM ext_gpload_0c5af2fa_a6ca_11ed_9982_000c291c752b
+2023-02-07 18:30:33|INFO|running time: 9.10 seconds
+2023-02-07 18:30:33|LOG|killing gpfdist
+2023-02-07 18:30:33|LOG|terminating all threads
+2023-02-07 18:30:33|LOG|all threads are terminated
+2023-02-07 18:30:33|LOG|removing temporary data
+2023-02-07 18:30:33|INFO|rows Inserted          = 1500000
+2023-02-07 18:30:33|INFO|rows Updated           = 0
+2023-02-07 18:30:33|INFO|data formatting errors = 0
+2023-02-07 18:30:33|INFO|gpload succeeded

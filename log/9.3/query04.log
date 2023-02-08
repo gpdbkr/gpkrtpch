@@ -1,0 +1,32 @@
+Timing is on.
+select
+        o_orderpriority,
+        count(*) as order_count
+from
+        orders
+where
+        o_orderdate >= date '1994-05-01'
+        and o_orderdate < date '1994-05-01' + interval '3 month'
+        and exists (
+                select
+                        *
+                from
+                        lineitem
+                where
+                        l_orderkey = o_orderkey
+                        and l_commitdate < l_receiptdate
+        )
+group by
+        o_orderpriority
+order by
+        o_orderpriority;
+ o_orderpriority | order_count 
+-----------------+-------------
+ 1-URGENT        |       10616
+ 2-HIGH          |       10594
+ 3-MEDIUM        |       10300
+ 4-NOT SPECIFIED |       10578
+ 5-LOW           |       10597
+(5 rows)
+
+Time: 15965.530 ms

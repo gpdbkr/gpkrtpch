@@ -1,0 +1,58 @@
+Timing is on.
+SELECT 'customer' tb_nm, sum(row_count) t_cnt, Avg(Row_Count) avg_cnt, max(Row_Count) max_cnt,(1-(Avg(Row_Count)/Max(Row_Count)))*100 as Skew_Pct FROM (SELECT gp_segment_id, count(*) as Row_Count FROM customer  GROUP BY gp_segment_id ) A;
+  tb_nm   | t_cnt  |      avg_cnt       | max_cnt |        skew_pct        
+----------+--------+--------------------+---------+------------------------
+ customer | 150000 | 75000.000000000000 |   75169 | 0.22482672378241030200
+(1 row)
+
+Time: 50.957 ms
+SELECT 'lineitem' tb_nm, sum(row_count) t_cnt, Avg(Row_Count) avg_cnt, max(Row_Count) max_cnt,(1-(Avg(Row_Count)/Max(Row_Count)))*100 as Skew_Pct FROM (SELECT gp_segment_id, count(*) as Row_Count FROM lineitem  GROUP BY gp_segment_id ) A;
+  tb_nm   |  t_cnt  |       avg_cnt        | max_cnt |        skew_pct        
+----------+---------+----------------------+---------+------------------------
+ lineitem | 6001215 | 3000607.500000000000 | 3000956 | 0.01161296600150085500
+(1 row)
+
+Time: 1178.983 ms
+SELECT 'nation  ' tb_nm, sum(row_count) t_cnt, Avg(Row_Count) avg_cnt, max(Row_Count) max_cnt,(1-(Avg(Row_Count)/Max(Row_Count)))*100 as Skew_Pct FROM (SELECT gp_segment_id, count(*) as Row_Count FROM nation    GROUP BY gp_segment_id ) A;
+  tb_nm   | t_cnt |       avg_cnt       | max_cnt |        skew_pct         
+----------+-------+---------------------+---------+-------------------------
+ nation   |    25 | 12.5000000000000000 |      15 | 16.66666666666666666700
+(1 row)
+
+Time: 7.362 ms
+SELECT 'orders  ' tb_nm, sum(row_count) t_cnt, Avg(Row_Count) avg_cnt, max(Row_Count) max_cnt,(1-(Avg(Row_Count)/Max(Row_Count)))*100 as Skew_Pct FROM (SELECT gp_segment_id, count(*) as Row_Count FROM orders    GROUP BY gp_segment_id ) A;
+  tb_nm   |  t_cnt  |       avg_cnt       | max_cnt |        skew_pct        
+----------+---------+---------------------+---------+------------------------
+ orders   | 1500000 | 750000.000000000000 |  750107 | 0.01426463157922803000
+(1 row)
+
+Time: 481.613 ms
+SELECT 'part    ' tb_nm, sum(row_count) t_cnt, Avg(Row_Count) avg_cnt, max(Row_Count) max_cnt,(1-(Avg(Row_Count)/Max(Row_Count)))*100 as Skew_Pct FROM (SELECT gp_segment_id, count(*) as Row_Count FROM part      GROUP BY gp_segment_id ) A;
+  tb_nm   | t_cnt  |       avg_cnt       | max_cnt |        skew_pct        
+----------+--------+---------------------+---------+------------------------
+ part     | 200000 | 100000.000000000000 |  100084 | 0.08392949922065465000
+(1 row)
+
+Time: 29.855 ms
+SELECT 'partsupp' tb_nm, sum(row_count) t_cnt, Avg(Row_Count) avg_cnt, max(Row_Count) max_cnt,(1-(Avg(Row_Count)/Max(Row_Count)))*100 as Skew_Pct FROM (SELECT gp_segment_id, count(*) as Row_Count FROM partsupp  GROUP BY gp_segment_id ) A;
+  tb_nm   | t_cnt  |       avg_cnt       | max_cnt |        skew_pct        
+----------+--------+---------------------+---------+------------------------
+ partsupp | 800000 | 400000.000000000000 |  400336 | 0.08392949922065465000
+(1 row)
+
+Time: 177.762 ms
+SELECT 'region  ' tb_nm, sum(row_count) t_cnt, Avg(Row_Count) avg_cnt, max(Row_Count) max_cnt,(1-(Avg(Row_Count)/Max(Row_Count)))*100 as Skew_Pct FROM (SELECT gp_segment_id, count(*) as Row_Count FROM region    GROUP BY gp_segment_id ) A;
+  tb_nm   | t_cnt |      avg_cnt       | max_cnt |        skew_pct         
+----------+-------+--------------------+---------+-------------------------
+ region   |     5 | 2.5000000000000000 |       3 | 16.66666666666666666700
+(1 row)
+
+Time: 6.583 ms
+SELECT 'supplier' tb_nm, sum(row_count) t_cnt, Avg(Row_Count) avg_cnt, max(Row_Count) max_cnt,(1-(Avg(Row_Count)/Max(Row_Count)))*100 as Skew_Pct FROM (SELECT gp_segment_id, count(*) as Row_Count FROM supplier  GROUP BY gp_segment_id ) A;
+  tb_nm   | t_cnt |        avg_cnt        | max_cnt |        skew_pct        
+----------+-------+-----------------------+---------+------------------------
+ supplier | 10000 | 5000.0000000000000000 |    5013 | 0.25932575304209056500
+(1 row)
+
+Time: 10.352 ms
+./2.6_skew2.sh|2023-02-07 18:30:55|2023-02-07 18:30:57|2

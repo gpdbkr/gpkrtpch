@@ -1,0 +1,2 @@
+create index nation_ix   on nation  (N_NATIONKEY) ;
+CREATE INDEX

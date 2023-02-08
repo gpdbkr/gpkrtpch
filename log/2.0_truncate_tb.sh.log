@@ -1,0 +1,26 @@
+Timing is on.
+truncate table gpkrtpch.customer;
+TRUNCATE TABLE
+Time: 6.555 ms
+truncate table gpkrtpch.lineitem;
+TRUNCATE TABLE
+Time: 62.654 ms
+truncate table gpkrtpch.nation;
+TRUNCATE TABLE
+Time: 2.020 ms
+truncate table gpkrtpch.orders;
+TRUNCATE TABLE
+Time: 63.143 ms
+truncate table gpkrtpch.part;
+TRUNCATE TABLE
+Time: 1.957 ms
+truncate table gpkrtpch.partsupp;
+TRUNCATE TABLE
+Time: 4.314 ms
+truncate table gpkrtpch.region;
+TRUNCATE TABLE
+Time: 1.447 ms
+truncate table gpkrtpch.supplier;
+TRUNCATE TABLE
+Time: 1.356 ms
+./2.0_truncate_tb.sh|2023-02-07 18:30:16|2023-02-07 18:30:16|0

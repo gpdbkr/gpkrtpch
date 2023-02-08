@@ -1,0 +1,38 @@
+VERSION: 1.0.0.1
+DATABASE: gpkrtpch
+USER: udba
+HOST: mdw
+PORT: 5432
+GPLOAD:
+    INPUT:
+     - SOURCE:
+          LOCAL_HOSTNAME:
+            - mdw
+          PORT_RANGE: [8081, 9081]
+          FILE: [ /data/gpkrtpch/data/customer.tbl.gz ]
+     - COLUMNS:
+       - c_custkey: integer
+       - c_name: character varying(25)
+       - c_address: character varying(40)
+       - c_nationkey: integer
+       - c_phone: character(15)
+       - c_acctbal: numeric(15,2)
+       - c_mktsegment: character(10)
+       - c_comment: character varying(117)
+     - FORMAT: text
+     - DELIMITER: '|'
+     - NULL_AS: '' 
+     - ERROR_LIMIT: 25
+     - LOG_ERRORS: true
+    OUTPUT:
+     - TABLE: gpkrtpch.customer
+     - MODE: INSERT 
+     - MAPPING: 
+        c_custkey: c_custkey
+        c_name: c_name
+        c_address: c_address
+        c_nationkey: c_nationkey
+        c_phone: c_phone
+        c_acctbal: c_acctbal
+        c_mktsegment: c_mktsegment
+        c_comment: c_comment

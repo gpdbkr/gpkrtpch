@@ -1,0 +1,10 @@
+select * from orders where o_orderkey = 846865  order by 1;
+select * From nation where n_name = 'JAPAN' ;
+select o_custkey, count(*) from orders where o_custkey = 65896 group by 1;
+select * from orders where o_orderkey = 57673  order by 1;
+select o_custkey, count(*) from orders where o_custkey = 79765 group by 1;
+select p_name, count(*) from part where p_partkey between 57845 and 57850 group by 1 order by 1;
+select s_acctbal, count(*) from supplier where s_suppkey between 747352 and 747356 group by 1 order by 1;
+select c_nationkey, count(*) from customer where c_custkey between 8368 and 8370 group by 1 order by 1 ;
+select p_type, count(*) from part where p_partkey between 5733473 and 5733475 group by 1 order by 1;
+select * from supplier where s_suppkey between 57457 and 57470 order by 1;

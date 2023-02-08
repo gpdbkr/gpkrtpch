@@ -1,0 +1,18 @@
+Timing is on.
+truncate table gpkrtpch.customer_com_col;
+TRUNCATE TABLE
+Time: 14.550 ms
+truncate table gpkrtpch.customer_com_row;
+TRUNCATE TABLE
+Time: 4.471 ms
+insert into gpkrtpch.customer_com_col
+select *
+from  gpkrtpch.customer;
+INSERT 0 150000
+Time: 550.700 ms
+insert into gpkrtpch.customer_com_row
+select *
+from  gpkrtpch.customer;
+INSERT 0 150000
+Time: 579.305 ms
+./6.1_compress.sh|2023-02-07 18:41:48|2023-02-07 18:41:49|1

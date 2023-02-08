@@ -1,0 +1,95 @@
+Timing is on.
+set gpcc.query_tags to 'appname=mstr';
+SET
+Time: 60.889 ms
+select s_name, count(*) from supplier where s_suppkey between 18101 and 18111 group by 1 order by 1;
+ s_name | count 
+--------+-------
+(0 rows)
+
+Time: 156.882 ms
+select  c_custkey, count(*) cnt  from  customer where  c_custkey in( 908097, 9022) group by 1 ;
+ c_custkey | cnt 
+-----------+-----
+      9022 |   1
+(1 row)
+
+Time: 87.839 ms
+select p_size, count(*)  from part where p_partkey between 12212 and 12223 group by 1 order by 1;
+ p_size | count 
+--------+-------
+     18 |     1
+     24 |     1
+     26 |     3
+     31 |     1
+     37 |     1
+     42 |     1
+     44 |     2
+     47 |     2
+(8 rows)
+
+Time: 53.658 ms
+select * from orders where o_orderkey between  1121 and 1121 order by 1;
+ o_orderkey | o_custkey | o_orderstatus | o_totalprice | o_orderdate | o_orderpriority |     o_clerk     | o_shippriority |                             o_comment                              
+------------+-----------+---------------+--------------+-------------+-----------------+-----------------+----------------+--------------------------------------------------------------------
+       1121 |     28006 | O             |    350404.56 | 2011-01-13  | 3-MEDIUM        | Clerk#000000541 |              0 | slyly even ideas use against the slyly unusual dependencies: speci
+       1121 |     28006 | O             |    350404.56 | 2004-01-13  | 3-MEDIUM        | Clerk#000000541 |              0 | slyly even ideas use against the slyly unusual dependencies: speci
+       1121 |     28006 | O             |    350404.56 | 1997-01-13  | 3-MEDIUM        | Clerk#000000541 |              0 | slyly even ideas use against the slyly unusual dependencies: speci
+(3 rows)
+
+Time: 128.224 ms
+select s_address, count(*) from supplier where s_suppkey between 34353 and 34355 group by 1 order by 1;
+ s_address | count 
+-----------+-------
+(0 rows)
+
+Time: 99.222 ms
+select c_address, count(*) from customer where c_custkey between 9696 and 9699 group by 1 order by 1 ;
+            c_address            | count 
+---------------------------------+-------
+ DonPqHF6EILESl5waS              |     1
+ aH8bfel4nQ0YxNXI7sNUiPJRH,Z 0p0 |     1
+ nb3weMysy24SIQzY4ouKTj05idX     |     1
+ wWYLtSgnnByIfu                  |     1
+(4 rows)
+
+Time: 37.492 ms
+select * from orders where o_orderkey between  978978 and 978980 order by 1;
+ o_orderkey | o_custkey | o_orderstatus | o_totalprice | o_orderdate | o_orderpriority |     o_clerk     | o_shippriority |                             o_comment                              
+------------+-----------+---------------+--------------+-------------+-----------------+-----------------+----------------+--------------------------------------------------------------------
+     978978 |     53624 | O             |    101978.71 | 2011-11-19  | 1-URGENT        | Clerk#000000603 |              0 | fluffily even deposits haggle carefull
+     978978 |     53624 | O             |    101978.71 | 1997-11-19  | 1-URGENT        | Clerk#000000603 |              0 | fluffily even deposits haggle carefull
+     978978 |     53624 | O             |    101978.71 | 2004-11-19  | 1-URGENT        | Clerk#000000603 |              0 | fluffily even deposits haggle carefull
+     978979 |     46864 | F             |    318746.54 | 2000-01-28  | 3-MEDIUM        | Clerk#000000966 |              0 | carefully express theodolites haggle always across the slyly even 
+     978979 |     46864 | F             |    318746.54 | 2007-01-28  | 3-MEDIUM        | Clerk#000000966 |              0 | carefully express theodolites haggle always across the slyly even 
+     978979 |     46864 | F             |    318746.54 | 1993-01-28  | 3-MEDIUM        | Clerk#000000966 |              0 | carefully express theodolites haggle always across the slyly even 
+     978980 |    113053 | O             |     22731.76 | 2003-02-10  | 3-MEDIUM        | Clerk#000000228 |              0 | final foxes wake about the carefully reg
+     978980 |    113053 | O             |     22731.76 | 2010-02-10  | 3-MEDIUM        | Clerk#000000228 |              0 | final foxes wake about the carefully reg
+     978980 |    113053 | O             |     22731.76 | 1996-02-10  | 3-MEDIUM        | Clerk#000000228 |              0 | final foxes wake about the carefully reg
+(9 rows)
+
+Time: 249.691 ms
+select  c_name, c_custkey  from  customer where  c_custkey in (970, 1057, 953536) ;
+       c_name       | c_custkey 
+--------------------+-----------
+ Customer#000000970 |       970
+ Customer#000001057 |      1057
+(2 rows)
+
+Time: 22.118 ms
+select o_custkey, count(*) from orders where o_custkey = 252353 group by 1;
+ o_custkey | count 
+-----------+-------
+(0 rows)
+
+Time: 1163.438 ms
+select c_phone, count(*) from customer where c_custkey between 74754 and 74757 group by 1  order by 1 ;
+     c_phone     | count 
+-----------------+-------
+ 18-880-256-8067 |     1
+ 24-578-394-4587 |     1
+ 29-999-220-8101 |     1
+ 31-231-216-1849 |     1
+(4 rows)
+
+Time: 26.858 ms

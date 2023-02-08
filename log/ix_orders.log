@@ -1,0 +1,2 @@
+create index O_ORDERKEY_ix on ORDERS(O_ORDERKEY);  
+CREATE INDEX

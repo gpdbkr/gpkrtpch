@@ -1,0 +1,58 @@
+Timing is on.
+select 'gpkrtpch.customer' tb_nm, gp_segment_id, count(*) from  gpkrtpch.customer  group by gp_segment_id order by 2;
+       tb_nm       | gp_segment_id | count 
+-------------------+---------------+-------
+ gpkrtpch.customer |             0 | 75169
+ gpkrtpch.customer |             1 | 74831
+(2 rows)
+
+Time: 39.073 ms
+select 'gpkrtpch.lineitem' tb_nm, gp_segment_id, count(*) from  gpkrtpch.lineitem  group by gp_segment_id order by 2;
+       tb_nm       | gp_segment_id |  count  
+-------------------+---------------+---------
+ gpkrtpch.lineitem |             0 | 3000259
+ gpkrtpch.lineitem |             1 | 3000956
+(2 rows)
+
+Time: 1209.403 ms
+select 'gpkrtpch.orders  ' tb_nm, gp_segment_id, count(*) from  gpkrtpch.orders    group by gp_segment_id order by 2;
+       tb_nm       | gp_segment_id | count  
+-------------------+---------------+--------
+ gpkrtpch.orders   |             0 | 749893
+ gpkrtpch.orders   |             1 | 750107
+(2 rows)
+
+Time: 516.599 ms
+select 'gpkrtpch.part    ' tb_nm, gp_segment_id, count(*) from  gpkrtpch.part      group by gp_segment_id order by 2;
+       tb_nm       | gp_segment_id | count  
+-------------------+---------------+--------
+ gpkrtpch.part     |             0 | 100084
+ gpkrtpch.part     |             1 |  99916
+(2 rows)
+
+Time: 28.006 ms
+select 'gpkrtpch.partsupp' tb_nm, gp_segment_id, count(*) from  gpkrtpch.partsupp  group by gp_segment_id order by 2;
+       tb_nm       | gp_segment_id | count  
+-------------------+---------------+--------
+ gpkrtpch.partsupp |             0 | 400336
+ gpkrtpch.partsupp |             1 | 399664
+(2 rows)
+
+Time: 197.453 ms
+select 'gpkrtpch.region  ' tb_nm, gp_segment_id, count(*) from  gpkrtpch.region    group by gp_segment_id order by 2;
+       tb_nm       | gp_segment_id | count 
+-------------------+---------------+-------
+ gpkrtpch.region   |             0 |     3
+ gpkrtpch.region   |             1 |     2
+(2 rows)
+
+Time: 5.519 ms
+select 'gpkrtpch.supplier' tb_nm, gp_segment_id, count(*) from  gpkrtpch.supplier  group by gp_segment_id order by 2;
+       tb_nm       | gp_segment_id | count 
+-------------------+---------------+-------
+ gpkrtpch.supplier |             0 |  5013
+ gpkrtpch.supplier |             1 |  4987
+(2 rows)
+
+Time: 8.587 ms
+./2.5_skew1.sh|2023-02-07 18:30:53|2023-02-07 18:30:55|2

@@ -1,0 +1,44 @@
+Timing is on.
+select 
+	cntrycode, 
+	count(*) as numcust, 
+	sum(c_acctbal) as totacctbal 
+from 
+	( 
+		select 
+			substring(c_phone from 1 for 2) as cntrycode, 
+			c_acctbal 
+		from 
+			customer left join orders 
+				on c_custkey = o_custkey 
+		where 
+			substring(c_phone from 1 for 2) in 
+				('11', '28', '21', '26', '19', '13', '22') 
+			and c_acctbal > ( 
+				select 
+					avg(c_acctbal) 
+				from 
+					customer 
+				where 
+					c_acctbal > 0.00 
+					and substring(c_phone from 1 for 2) in 
+						('11', '28', '21', '26', '19', '13', '22') 
+			) 
+			and o_custkey is null 
+	) as custsale 
+group by 
+	cntrycode 
+order by 
+	cntrycode;
+ cntrycode | numcust | totacctbal 
+-----------+---------+------------
+ 11        |     897 | 6692259.07
+ 13        |     889 | 6742716.75
+ 19        |     961 | 7220788.30
+ 21        |     955 | 7235832.66
+ 22        |     893 | 6631741.43
+ 26        |     861 | 6404695.86
+ 28        |     909 | 6710689.26
+(7 rows)
+
+Time: 16622.958 ms

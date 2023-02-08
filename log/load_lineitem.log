@@ -1,0 +1,59 @@
+2023-02-07 18:30:23|INFO|gpload session started 2023-02-07 18:30:23
+2023-02-07 18:30:24|LOG|trying to run gpfdist -p 8081 -P 9081 -f "/data/gpkrtpch/data/lineitem_*.tbl.gz" -t 30 -v
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21614 INFO Before opening listening sockets - following listening sockets are available:
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21614 INFO IPV6 socket: [::]:8081
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21614 INFO IPV4 socket: 0.0.0.0:8081
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21614 INFO Trying to open listening socket:
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21614 INFO IPV6 socket: [::]:8081
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21614 WARN Address already in use (errno = 98), port: 8081
+2023-02-07 18:30:24|LOG|gpfdist says: 
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21614 INFO Before opening listening sockets - following listening sockets are available:
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21614 INFO IPV6 socket: [::]:8082
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21614 INFO IPV4 socket: 0.0.0.0:8082
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21614 INFO Trying to open listening socket:
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21614 INFO IPV6 socket: [::]:8082
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21614 WARN Address already in use (errno = 98), port: 8082
+2023-02-07 18:30:24|LOG|gpfdist says: 
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21614 INFO Before opening listening sockets - following listening sockets are available:
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21614 INFO IPV6 socket: [::]:8083
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21614 INFO IPV4 socket: 0.0.0.0:8083
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21614 INFO Trying to open listening socket:
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21614 INFO IPV6 socket: [::]:8083
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21614 WARN Address already in use (errno = 98), port: 8083
+2023-02-07 18:30:24|LOG|gpfdist says: 
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21614 INFO Before opening listening sockets - following listening sockets are available:
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21614 INFO IPV6 socket: [::]:8084
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21614 INFO IPV4 socket: 0.0.0.0:8084
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21614 INFO Trying to open listening socket:
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21614 INFO IPV6 socket: [::]:8084
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21614 WARN Address already in use (errno = 98), port: 8084
+2023-02-07 18:30:24|LOG|gpfdist says: 
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21614 INFO Before opening listening sockets - following listening sockets are available:
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21614 INFO IPV6 socket: [::]:8085
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21614 INFO IPV4 socket: 0.0.0.0:8085
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21614 INFO Trying to open listening socket:
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21614 INFO IPV6 socket: [::]:8085
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21614 WARN Address already in use (errno = 98), port: 8085
+2023-02-07 18:30:24|LOG|gpfdist says: 
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21614 INFO Before opening listening sockets - following listening sockets are available:
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21614 INFO IPV6 socket: [::]:8086
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21614 INFO IPV4 socket: 0.0.0.0:8086
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21614 INFO Trying to open listening socket:
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21614 INFO IPV6 socket: [::]:8086
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21614 INFO Opening listening socket succeeded
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21614 INFO Trying to open listening socket:
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21614 INFO IPV4 socket: 0.0.0.0:8086
+2023-02-07 18:30:24|LOG|gpfdist says: 2023-02-07 18:30:24 21614 INFO Opening listening socket succeeded
+2023-02-07 18:30:24|LOG|gpfdist says: Serving HTTP on port 8086, directory /data/gpkrtpch
+2023-02-07 18:30:24|INFO|started gpfdist -p 8081 -P 9081 -f "/data/gpkrtpch/data/lineitem_*.tbl.gz" -t 30 -v
+2023-02-07 18:30:24|LOG|gpfdist is running on port 8086
+2023-02-07 18:30:24|LOG|INSERT INTO "gpkrtpch"."lineitem" ("l_orderkey","l_partkey","l_suppkey","l_linenumber","l_quantity","l_extendedprice","l_discount","l_tax","l_returnflag","l_linestatus","l_shipdate","l_commitdate","l_receiptdate","l_shipinstruct","l_shipmode","l_comment") SELECT l_orderkey,l_partkey,l_suppkey,l_linenumber,l_quantity,l_extendedprice,l_discount,l_tax,l_returnflag,l_linestatus,l_shipdate,l_commitdate,l_receiptdate,l_shipinstruct,l_shipmode,l_comment FROM ext_gpload_0c5e36b8_a6ca_11ed_bfbc_000c291c752b
+2023-02-07 18:30:47|INFO|running time: 23.05 seconds
+2023-02-07 18:30:47|LOG|killing gpfdist
+2023-02-07 18:30:47|LOG|terminating all threads
+2023-02-07 18:30:47|LOG|all threads are terminated
+2023-02-07 18:30:47|LOG|removing temporary data
+2023-02-07 18:30:47|INFO|rows Inserted          = 6001215
+2023-02-07 18:30:47|INFO|rows Updated           = 0
+2023-02-07 18:30:47|INFO|data formatting errors = 0
+2023-02-07 18:30:47|INFO|gpload succeeded

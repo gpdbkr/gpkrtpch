@@ -1,0 +1,58 @@
+Timing is on.
+select 'gpkrtpch.customer' tb_nm, count(*) from  gpkrtpch.customer;
+       tb_nm       | count  
+-------------------+--------
+ gpkrtpch.customer | 150000
+(1 row)
+
+Time: 30.952 ms
+select 'gpkrtpch.lineitem' tb_nm, count(*) from  gpkrtpch.lineitem;
+       tb_nm       |  count   
+-------------------+----------
+ gpkrtpch.lineitem | 18003645
+(1 row)
+
+Time: 1454.123 ms
+select 'gpkrtpch.nation  ' tb_nm, count(*) from  gpkrtpch.nation;
+       tb_nm       | count 
+-------------------+-------
+ gpkrtpch.nation   |    25
+(1 row)
+
+Time: 4.352 ms
+select 'gpkrtpch.orders  ' tb_nm, count(*) from  gpkrtpch.orders;
+       tb_nm       |  count  
+-------------------+---------
+ gpkrtpch.orders   | 4500000
+(1 row)
+
+Time: 1069.970 ms
+select 'gpkrtpch.part    ' tb_nm, count(*) from  gpkrtpch.part;
+       tb_nm       | count  
+-------------------+--------
+ gpkrtpch.part     | 200000
+(1 row)
+
+Time: 22.175 ms
+select 'gpkrtpch.partsupp' tb_nm, count(*) from  gpkrtpch.partsupp;
+       tb_nm       | count  
+-------------------+--------
+ gpkrtpch.partsupp | 800000
+(1 row)
+
+Time: 127.647 ms
+select 'gpkrtpch.region  ' tb_nm, count(*) from  gpkrtpch.region;
+       tb_nm       | count 
+-------------------+-------
+ gpkrtpch.region   |     5
+(1 row)
+
+Time: 4.116 ms
+select 'gpkrtpch.supplier' tb_nm, count(*) from  gpkrtpch.supplier;
+       tb_nm       | count 
+-------------------+-------
+ gpkrtpch.supplier | 10000
+(1 row)
+
+Time: 6.971 ms
+./3.6_count.sh|2023-02-07 18:33:04|2023-02-07 18:33:07|3

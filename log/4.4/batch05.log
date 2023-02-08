@@ -1,0 +1,14 @@
+Timing is on.
+drop table if exists lineitem_batch;
+psql:/data/gpkrtpch/query/batch05.sql:1: NOTICE:  table "lineitem_batch" does not exist, skipping
+DROP TABLE
+Time: 15.110 ms
+create table lineitem_batch
+as
+select * from lineitem
+where l_shipdate >= '19920101'::date
+and   l_shipdate <  '19930101'::date
+distributed randomly
+;
+SELECT 756352
+Time: 2482.416 ms

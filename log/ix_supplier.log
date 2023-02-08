@@ -1,0 +1,2 @@
+create index supplier_ix on SUPPLIER(S_SUPPKEY);  ;
+CREATE INDEX

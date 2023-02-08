@@ -1,0 +1,10 @@
+select o_custkey, count(*) from orders where o_custkey = 3723724 group by 1;
+select * from    lineitem  where   l_orderkey = 131531 ;
+select  c_name, c_custkey  from  customer where  c_custkey = 13121 ;
+select o_custkey, count(*) from orders where o_custkey = 123132 group by 1;
+select * from orders where o_orderkey between  63768 and 63790 order by 1;
+select c_comment, count(*) from customer where c_custkey between 745754 and 745760  group by 1 order by 1 ;
+select c_name, count(*) from customer where c_custkey between 754257 and 754260 group by 1 order by 1 ;
+select * from part where p_partkey = 97696  order by 1;
+select * From nation where n_nationkey = 45 ;
+select o_custkey, count(*) from orders where o_custkey = 745743 group by 1;

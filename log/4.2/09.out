@@ -1,0 +1,109 @@
+Timing is on.
+explain analyze 
+select
+	nation,
+	o_year,
+	sum(amount) as sum_profit
+from
+	(
+		select
+			n_name as nation,
+			extract(year from o_orderdate) as o_year,
+			l_extendedprice * (1 - l_discount) - ps_supplycost * l_quantity as amount
+		from
+			part,
+			supplier,
+			lineitem,
+			partsupp,
+			orders,
+			nation
+		where
+			s_suppkey = l_suppkey
+			and ps_suppkey = l_suppkey
+			and ps_partkey = l_partkey
+			and p_partkey = l_partkey
+			and o_orderkey = l_orderkey
+			and s_nationkey = n_nationkey
+			and p_name like '%tan%'
+	) as profit
+group by
+	nation,
+	o_year
+order by
+	nation,
+	o_year desc;
+                                                                                                               QUERY PLAN                                                                                                               
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Gather Motion 2:1  (slice6; segments: 2)  (cost=0.00..8191.09 rows=64163 width=42) (actual time=11521.392..11818.269 rows=525 loops=1)
+   Merge Key: nation.n_name, (date_part('year'::text, (orders.o_orderdate)::timestamp without time zone))
+   ->  GroupAggregate  (cost=0.00..8178.99 rows=32082 width=42) (actual time=11278.533..11817.116 rows=275 loops=1)
+         Group Key: nation.n_name, (date_part('year'::text, (orders.o_orderdate)::timestamp without time zone))
+         ->  Sort  (cost=0.00..8176.88 rows=32082 width=42) (actual time=11275.967..11509.651 rows=1222194 loops=1)
+               Sort Key: nation.n_name, (date_part('year'::text, (orders.o_orderdate)::timestamp without time zone))
+               Sort Method:  external merge  Disk: 127616kB
+               ->  Redistribute Motion 2:2  (slice5; segments: 2)  (cost=0.00..8062.52 rows=32082 width=42) (actual time=4356.602..8237.114 rows=1222194 loops=1)
+                     Hash Key: nation.n_name, (date_part('year'::text, (orders.o_orderdate)::timestamp without time zone))
+                     ->  Result  (cost=0.00..8058.30 rows=32082 width=42) (actual time=4354.018..9098.125 rows=1167984 loops=1)
+                           ->  Result  (cost=0.00..8058.30 rows=32082 width=42) (actual time=4354.017..8976.161 rows=1167984 loops=1)
+                                 ->  Hash Join  (cost=0.00..8053.75 rows=32082 width=53) (actual time=4353.980..7960.413 rows=1167984 loops=1)
+                                       Hash Cond: ((lineitem.l_suppkey = partsupp.ps_suppkey) AND (lineitem.l_partkey = partsupp.ps_partkey) AND (supplier.s_suppkey = partsupp.ps_suppkey) AND (part.p_partkey = partsupp.ps_partkey))
+                                       Extra Text: (seg1)   Hash chain length 3.2 avg, 13 max, using 124972 of 131072 buckets.Initial batch 0:
+ 
+                                       ->  Redistribute Motion 2:2  (slice4; segments: 2)  (cost=0.00..6908.31 rows=743905 width=63) (actual time=4019.090..6642.527 rows=1167984 loops=1)
+                                             Hash Key: lineitem.l_partkey
+                                             ->  Hash Join  (cost=0.00..6761.62 rows=743905 width=63) (actual time=4335.444..7414.406 rows=1169433 loops=1)
+                                                   Hash Cond: (orders.o_orderkey = lineitem.l_orderkey)
+                                                   Extra Text: (seg0)   Initial batch 0:
+ (seg0)     Wrote 17549K bytes to inner workfile.
+ (seg0)     Wrote 30755K bytes to outer workfile.
+ (seg0)   Overflow batch 1:
+ (seg0)     Read 17549K bytes from inner workfile.
+ (seg0)     Read 30755K bytes from outer workfile.
+ (seg0)   Hash chain length 5.0 avg, 30 max, using 78258 of 131072 buckets.
+                                                   ->  Sequence  (cost=0.00..584.45 rows=2250000 width=12) (actual time=0.267..737.359 rows=2250321 loops=1)
+                                                         ->  Partition Selector for orders (dynamic scan id: 2)  (cost=10.00..100.00 rows=50 width=4) (never executed)
+                                                               Partitions selected: 22 (out of 22)
+                                                         ->  Dynamic Seq Scan on orders (dynamic scan id: 2)  (cost=0.00..584.45 rows=2250000 width=12) (actual time=0.258..551.332 rows=2250321 loops=1)
+                                                               Partitions scanned:  Avg 22.0 (out of 22) x 2 workers.  Max 22 parts (seg0).
+                                                   ->  Hash  (cost=5142.44..5142.44 rows=238130 width=67) (actual time=4334.843..4334.843 rows=389811 loops=1)
+                                                         ->  Hash Join  (cost=0.00..5142.44 rows=238130 width=67) (actual time=22.934..4052.674 rows=389811 loops=1)
+                                                               Hash Cond: (lineitem.l_suppkey = supplier.s_suppkey)
+                                                               Extra Text: (seg0)   Hash chain length 1.1 avg, 4 max, using 9295 of 65536 buckets.
+                                                               ->  Hash Join  (cost=0.00..4160.17 rows=238130 width=37) (actual time=5.846..3873.255 rows=389811 loops=1)
+                                                                     Hash Cond: (lineitem.l_partkey = part.p_partkey)
+                                                                     Extra Text: (seg0)   Hash chain length 1.0 avg, 3 max, using 8354 of 131072 buckets.
+                                                                     ->  Sequence  (cost=0.00..1089.48 rows=9001823 width=33) (actual time=1.577..2996.616 rows=9002868 loops=1)
+                                                                           ->  Partition Selector for lineitem (dynamic scan id: 1)  (cost=10.00..100.00 rows=50 width=4) (never executed)
+                                                                                 Partitions selected: 22 (out of 22)
+                                                                           ->  Dynamic Seq Scan on lineitem (dynamic scan id: 1)  (cost=0.00..1089.48 rows=9001823 width=33) (actual time=1.554..2421.236 rows=9002868 loops=1)
+                                                                                 Partitions scanned:  Avg 22.0 (out of 22) x 2 workers.  Max 22 parts (seg0).
+                                                                     ->  Hash  (cost=443.86..443.86 rows=5096 width=4) (actual time=3.762..3.762 rows=8621 loops=1)
+                                                                           ->  Broadcast Motion 2:2  (slice1; segments: 2)  (cost=0.00..443.86 rows=5096 width=4) (actual time=0.064..2.686 rows=8621 loops=1)
+                                                                                 ->  Seq Scan on part  (cost=0.00..443.33 rows=2548 width=4) (actual time=0.046..17.594 rows=4317 loops=1)
+                                                                                       Filter: ((p_name)::text ~~ '%tan%'::text)
+                                                               ->  Hash  (cost=871.86..871.86 rows=10000 width=30) (actual time=16.868..16.868 rows=10000 loops=1)
+                                                                     ->  Broadcast Motion 2:2  (slice3; segments: 2)  (cost=0.00..871.86 rows=10000 width=30) (actual time=0.023..15.339 rows=10000 loops=1)
+                                                                           ->  Hash Join  (cost=0.00..864.01 rows=5000 width=30) (actual time=0.283..1.911 rows=5013 loops=1)
+                                                                                 Hash Cond: (supplier.s_nationkey = nation.n_nationkey)
+                                                                                 Extra Text: (seg0)   Hash chain length 1.0 avg, 1 max, using 25 of 65536 buckets.
+                                                                                 ->  Seq Scan on supplier  (cost=0.00..431.48 rows=5000 width=8) (actual time=0.008..0.723 rows=5013 loops=1)
+                                                                                 ->  Hash  (cost=431.02..431.02 rows=25 width=30) (actual time=0.012..0.012 rows=25 loops=1)
+                                                                                       ->  Broadcast Motion 2:2  (slice2; segments: 2)  (cost=0.00..431.02 rows=25 width=30) (actual time=0.006..0.008 rows=25 loops=1)
+                                                                                             ->  Seq Scan on nation  (cost=0.00..431.00 rows=13 width=30) (actual time=0.010..0.012 rows=15 loops=1)
+                                       ->  Hash  (cost=465.54..465.54 rows=400000 width=14) (actual time=406.493..406.493 rows=400336 loops=1)
+                                             ->  Seq Scan on partsupp  (cost=0.00..465.54 rows=400000 width=14) (actual time=0.539..68.881 rows=400336 loops=1)
+ Planning time: 367.310 ms
+   (slice0)    Executor memory: 647K bytes.
+   (slice1)    Executor memory: 70K bytes avg x 2 workers, 70K bytes max (seg0).
+   (slice2)    Executor memory: 62K bytes avg x 2 workers, 62K bytes max (seg0).
+   (slice3)    Executor memory: 610K bytes avg x 2 workers, 610K bytes max (seg0).  Work_mem: 2K bytes max.
+ * (slice4)    Executor memory: 54570K bytes avg x 2 workers, 54570K bytes max (seg0).  Work_mem: 31801K bytes max, 39590K bytes wanted.
+   (slice5)    Executor memory: 34442K bytes avg x 2 workers, 34442K bytes max (seg0).  Work_mem: 15639K bytes max.
+ * (slice6)    Executor memory: 32906K bytes avg x 2 workers, 32906K bytes max (seg0).  Work_mem: 32761K bytes max, 125957K bytes wanted.
+ Memory used:  128000kB
+ Memory wanted:  883994kB
+ Optimizer: Pivotal Optimizer (GPORCA)
+ Execution time: 11846.189 ms
+(70 rows)
+
+Time: 12215.623 ms

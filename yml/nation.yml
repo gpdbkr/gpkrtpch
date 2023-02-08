@@ -1,0 +1,30 @@
+VERSION: 1.0.0.1
+DATABASE: gpkrtpch
+USER: udba
+HOST: mdw
+PORT: 5432
+GPLOAD:
+    INPUT:
+     - SOURCE:
+          LOCAL_HOSTNAME:
+            - mdw
+          PORT_RANGE: [8081, 9081]
+          FILE: [ /data/gpkrtpch/data/nation.tbl.gz ]
+     - COLUMNS:
+       - n_nationkey: integer
+       - n_name: character(25)
+       - n_regionkey: integer
+       - n_comment: character varying(152)
+     - FORMAT: text
+     - DELIMITER: '|'
+     - NULL_AS: '' 
+     - ERROR_LIMIT: 25
+     - LOG_ERRORS: true
+    OUTPUT:
+     - TABLE: gpkrtpch.nation
+     - MODE: INSERT 
+     - MAPPING: 
+        n_nationkey: n_nationkey
+        n_name: n_name
+        n_regionkey: n_regionkey
+        n_comment: n_comment

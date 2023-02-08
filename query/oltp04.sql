@@ -1,0 +1,10 @@
+select * from orders where o_orderkey = 1318  order by 1;
+select o_custkey, count(*) from orders where o_custkey = 272633 group by 1;
+select p_name, count(*) from part where p_partkey between 191920 and 191922 group by 1 order by 1;
+select s_acctbal, count(*) from supplier where s_suppkey between 69696 and 69699 group by 1 order by 1;
+select c_nationkey, count(*) from customer where c_custkey between 11287 and 11287 group by 1 order by 1 ;
+select p_type, count(*) from part where p_partkey between 49585 and 49585 group by 1 order by 1;
+select * from supplier where s_suppkey between 10782 and 10782 order by 1;
+select  c_name, c_custkey  from  customer where  c_custkey = 1818111 ;
+select o_custkey, count(*) from orders where o_custkey = 2333    group by 1;
+select * From nation where n_name = 'ETHIOPIA' ;

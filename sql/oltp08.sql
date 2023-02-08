@@ -1,0 +1,11 @@
+set gpcc.query_tags to 'appname=mstr';
+select c_address, count(*) from customer where c_custkey between 19587 and 19587 group by 1 order by 1 ;
+select * from orders where o_orderkey between  1322 and 1380 order by 1;
+select  c_name, c_custkey  from  customer where  c_custkey in (9370, 5657, 915356) ;
+select o_custkey, count(*) from orders where o_custkey = 16262633 group by 1;
+select c_phone, count(*) from customer where c_custkey between 9837766 and 9837768 group by 1  order by 1 ;
+select o_custkey, count(*) from orders where o_custkey = 885366 group by 1;
+select * from    lineitem  where   l_orderkey = 83734 ;
+select * From nation where n_name = 'MOROCCO' ;
+select s_nationkey, count(*) from supplier where s_suppkey between 2211 and 2233 group by 1 order by 1;
+select s_name, count(*) from supplier where s_suppkey between 66910 and 66915 group by 1 order by 1;

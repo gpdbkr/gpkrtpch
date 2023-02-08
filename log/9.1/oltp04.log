@@ -1,0 +1,71 @@
+Timing is on.
+select * from orders where o_orderkey = 1318  order by 1;
+ o_orderkey | o_custkey | o_orderstatus | o_totalprice | o_orderdate | o_orderpriority |     o_clerk     | o_shippriority |                    o_comment                    
+------------+-----------+---------------+--------------+-------------+-----------------+-----------------+----------------+-------------------------------------------------
+       1318 |    127780 | O             |    130357.62 | 2005-06-27  | 3-MEDIUM        | Clerk#000000581 |              0 | carefully final packages affix slyly. carefully
+       1318 |    127780 | O             |    130357.62 | 1998-06-27  | 3-MEDIUM        | Clerk#000000581 |              0 | carefully final packages affix slyly. carefully
+       1318 |    127780 | O             |    130357.62 | 2012-06-27  | 3-MEDIUM        | Clerk#000000581 |              0 | carefully final packages affix slyly. carefully
+(3 rows)
+
+Time: 165.548 ms
+select o_custkey, count(*) from orders where o_custkey = 272633 group by 1;
+ o_custkey | count 
+-----------+-------
+(0 rows)
+
+Time: 1412.802 ms
+select p_name, count(*) from part where p_partkey between 191920 and 191922 group by 1 order by 1;
+                p_name                 | count 
+---------------------------------------+-------
+ azure peru navy indian cornsilk       |     1
+ floral ghost honeydew linen burnished |     1
+ indian almond violet hot chocolate    |     1
+(3 rows)
+
+Time: 37.307 ms
+select s_acctbal, count(*) from supplier where s_suppkey between 69696 and 69699 group by 1 order by 1;
+ s_acctbal | count 
+-----------+-------
+(0 rows)
+
+Time: 49.508 ms
+select c_nationkey, count(*) from customer where c_custkey between 11287 and 11287 group by 1 order by 1 ;
+ c_nationkey | count 
+-------------+-------
+           6 |     1
+(1 row)
+
+Time: 20.951 ms
+select p_type, count(*) from part where p_partkey between 49585 and 49585 group by 1 order by 1;
+         p_type          | count 
+-------------------------+-------
+ MEDIUM BURNISHED NICKEL |     1
+(1 row)
+
+Time: 5.841 ms
+select * from supplier where s_suppkey between 10782 and 10782 order by 1;
+ s_suppkey | s_name | s_address | s_nationkey | s_phone | s_acctbal | s_comment 
+-----------+--------+-----------+-------------+---------+-----------+-----------
+(0 rows)
+
+Time: 3.183 ms
+select  c_name, c_custkey  from  customer where  c_custkey = 1818111 ;
+ c_name | c_custkey 
+--------+-----------
+(0 rows)
+
+Time: 2.462 ms
+select o_custkey, count(*) from orders where o_custkey = 2333    group by 1;
+ o_custkey | count 
+-----------+-------
+      2333 |    24
+(1 row)
+
+Time: 778.971 ms
+select * From nation where n_name = 'ETHIOPIA' ;
+ n_nationkey |          n_name           | n_regionkey |                                    n_comment                                    
+-------------+---------------------------+-------------+---------------------------------------------------------------------------------
+           5 | ETHIOPIA                  |           0 | fluffily ruthless requests integrate fluffily. pending ideas wake blithely acco
+(1 row)
+
+Time: 28.035 ms

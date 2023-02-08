@@ -1,0 +1,180 @@
+Timing is on.
+set gpcc.query_tags to 'appname=mstr';
+SET
+Time: 59.852 ms
+select s_acctbal, count(*) from supplier where s_suppkey between 9876 and 9877 group by 1 order by 1;
+ s_acctbal | count 
+-----------+-------
+   1377.53 |     1
+   6056.04 |     1
+(2 rows)
+
+Time: 179.593 ms
+select * from orders where o_orderkey between  12625 and 12725 order by 1;
+ o_orderkey | o_custkey | o_orderstatus | o_totalprice | o_orderdate | o_orderpriority |     o_clerk     | o_shippriority |                                   o_comment                                    
+------------+-----------+---------------+--------------+-------------+-----------------+-----------------+----------------+--------------------------------------------------------------------------------
+      12640 |     41204 | O             |     79328.46 | 2012-07-20  | 2-HIGH          | Clerk#000000081 |              0 | platelets use after the blithely final accounts. pending pinto bea
+      12640 |     41204 | O             |     79328.46 | 1998-07-20  | 2-HIGH          | Clerk#000000081 |              0 | platelets use after the blithely final accounts. pending pinto bea
+      12640 |     41204 | O             |     79328.46 | 2005-07-20  | 2-HIGH          | Clerk#000000081 |              0 | platelets use after the blithely final accounts. pending pinto bea
+      12641 |    109615 | F             |    191290.15 | 2009-02-23  | 5-LOW           | Clerk#000000617 |              0 | pending, regular accounts detect finally slyly express pinto beans. 
+      12641 |    109615 | F             |    191290.15 | 2002-02-23  | 5-LOW           | Clerk#000000617 |              0 | pending, regular accounts detect finally slyly express pinto beans. 
+      12641 |    109615 | F             |    191290.15 | 1995-02-23  | 5-LOW           | Clerk#000000617 |              0 | pending, regular accounts detect finally slyly express pinto beans. 
+      12642 |    124192 | F             |    321575.40 | 2008-04-28  | 1-URGENT        | Clerk#000000015 |              0 | excuses wake carefully regular accounts. final foxes cajole fluffily blithe
+      12642 |    124192 | F             |    321575.40 | 1994-04-28  | 1-URGENT        | Clerk#000000015 |              0 | excuses wake carefully regular accounts. final foxes cajole fluffily blithe
+      12642 |    124192 | F             |    321575.40 | 2001-04-28  | 1-URGENT        | Clerk#000000015 |              0 | excuses wake carefully regular accounts. final foxes cajole fluffily blithe
+      12643 |     32012 | F             |    122960.50 | 2000-03-20  | 5-LOW           | Clerk#000000486 |              0 | furiously silent dependencies play furiously. final foxes affix
+      12643 |     32012 | F             |    122960.50 | 2007-03-20  | 5-LOW           | Clerk#000000486 |              0 | furiously silent dependencies play furiously. final foxes affix
+      12643 |     32012 | F             |    122960.50 | 1993-03-20  | 5-LOW           | Clerk#000000486 |              0 | furiously silent dependencies play furiously. final foxes affix
+      12644 |    115739 | F             |    149796.54 | 1999-02-01  | 2-HIGH          | Clerk#000000394 |              0 | special, careful packages are around the fina
+      12644 |    115739 | F             |    149796.54 | 2006-02-01  | 2-HIGH          | Clerk#000000394 |              0 | special, careful packages are around the fina
+      12644 |    115739 | F             |    149796.54 | 1992-02-01  | 2-HIGH          | Clerk#000000394 |              0 | special, careful packages are around the fina
+      12645 |     24901 | F             |    271252.44 | 2008-07-07  | 5-LOW           | Clerk#000000705 |              0 | carefully pending instr
+      12645 |     24901 | F             |    271252.44 | 2001-07-07  | 5-LOW           | Clerk#000000705 |              0 | carefully pending instr
+      12645 |     24901 | F             |    271252.44 | 1994-07-07  | 5-LOW           | Clerk#000000705 |              0 | carefully pending instr
+      12646 |    133327 | F             |    166478.41 | 2000-02-18  | 1-URGENT        | Clerk#000000155 |              0 | blithely ironic accounts haggle along the deposits. platelets sleep quickly i
+      12646 |    133327 | F             |    166478.41 | 1993-02-18  | 1-URGENT        | Clerk#000000155 |              0 | blithely ironic accounts haggle along the deposits. platelets sleep quickly i
+      12646 |    133327 | F             |    166478.41 | 2007-02-18  | 1-URGENT        | Clerk#000000155 |              0 | blithely ironic accounts haggle along the deposits. platelets sleep quickly i
+      12647 |    119614 | O             |     33821.60 | 2004-02-27  | 4-NOT SPECIFIED | Clerk#000000190 |              0 | courts grow furiously ironic accounts. unusual packages cajole blithely exp
+      12647 |    119614 | O             |     33821.60 | 2011-02-27  | 4-NOT SPECIFIED | Clerk#000000190 |              0 | courts grow furiously ironic accounts. unusual packages cajole blithely exp
+      12647 |    119614 | O             |     33821.60 | 1997-02-27  | 4-NOT SPECIFIED | Clerk#000000190 |              0 | courts grow furiously ironic accounts. unusual packages cajole blithely exp
+      12672 |     25696 | F             |     36912.23 | 2001-07-07  | 4-NOT SPECIFIED | Clerk#000000963 |              0 | blithely pending requests maintain according to the quietly ironic accounts. s
+      12672 |     25696 | F             |     36912.23 | 1994-07-07  | 4-NOT SPECIFIED | Clerk#000000963 |              0 | blithely pending requests maintain according to the quietly ironic accounts. s
+      12672 |     25696 | F             |     36912.23 | 2008-07-07  | 4-NOT SPECIFIED | Clerk#000000963 |              0 | blithely pending requests maintain according to the quietly ironic accounts. s
+      12673 |      6127 | F             |     20331.67 | 2008-06-12  | 1-URGENT        | Clerk#000000435 |              0 | unusual instructions haggle. quickly regul
+      12673 |      6127 | F             |     20331.67 | 1994-06-12  | 1-URGENT        | Clerk#000000435 |              0 | unusual instructions haggle. quickly regul
+      12673 |      6127 | F             |     20331.67 | 2001-06-12  | 1-URGENT        | Clerk#000000435 |              0 | unusual instructions haggle. quickly regul
+      12674 |     58570 | F             |    121176.02 | 2006-07-05  | 5-LOW           | Clerk#000000811 |              0 | quickly express packages use carefully. regular, even p
+      12674 |     58570 | F             |    121176.02 | 1992-07-05  | 5-LOW           | Clerk#000000811 |              0 | quickly express packages use carefully. regular, even p
+      12674 |     58570 | F             |    121176.02 | 1999-07-05  | 5-LOW           | Clerk#000000811 |              0 | quickly express packages use carefully. regular, even p
+      12675 |     67870 | F             |    161611.34 | 2008-01-28  | 3-MEDIUM        | Clerk#000000921 |              0 | final, ironic decoys use furiously alongside of the regular packages. iro
+      12675 |     67870 | F             |    161611.34 | 2001-01-28  | 3-MEDIUM        | Clerk#000000921 |              0 | final, ironic decoys use furiously alongside of the regular packages. iro
+      12675 |     67870 | F             |    161611.34 | 1994-01-28  | 3-MEDIUM        | Clerk#000000921 |              0 | final, ironic decoys use furiously alongside of the regular packages. iro
+      12676 |     83860 | F             |      5845.07 | 2001-01-16  | 2-HIGH          | Clerk#000000960 |              0 | accounts sleep blithely alongside of the quick
+      12676 |     83860 | F             |      5845.07 | 1994-01-16  | 2-HIGH          | Clerk#000000960 |              0 | accounts sleep blithely alongside of the quick
+      12676 |     83860 | F             |      5845.07 | 2008-01-16  | 2-HIGH          | Clerk#000000960 |              0 | accounts sleep blithely alongside of the quick
+      12677 |     18989 | O             |    207550.13 | 2010-05-25  | 5-LOW           | Clerk#000000500 |              0 | pending escapades boost carefully even dependencies. final deposits cajole un
+      12677 |     18989 | O             |    207550.13 | 2003-05-25  | 5-LOW           | Clerk#000000500 |              0 | pending escapades boost carefully even dependencies. final deposits cajole un
+      12677 |     18989 | O             |    207550.13 | 1996-05-25  | 5-LOW           | Clerk#000000500 |              0 | pending escapades boost carefully even dependencies. final deposits cajole un
+      12678 |     84214 | O             |     93226.89 | 2005-01-26  | 5-LOW           | Clerk#000000395 |              0 | final excuses will have to are bus
+      12678 |     84214 | O             |     93226.89 | 2012-01-26  | 5-LOW           | Clerk#000000395 |              0 | final excuses will have to are bus
+      12678 |     84214 | O             |     93226.89 | 1998-01-26  | 5-LOW           | Clerk#000000395 |              0 | final excuses will have to are bus
+      12679 |    111565 | O             |     74898.91 | 2004-06-22  | 2-HIGH          | Clerk#000000326 |              0 | blithely unusual deposits nod even dugouts-- carefully unusual foxes above 
+      12679 |    111565 | O             |     74898.91 | 1997-06-22  | 2-HIGH          | Clerk#000000326 |              0 | blithely unusual deposits nod even dugouts-- carefully unusual foxes above 
+      12679 |    111565 | O             |     74898.91 | 2011-06-22  | 2-HIGH          | Clerk#000000326 |              0 | blithely unusual deposits nod even dugouts-- carefully unusual foxes above 
+      12704 |     43789 | F             |    137251.63 | 1993-02-10  | 5-LOW           | Clerk#000000553 |              0 | slowly regular dolphins impress. 
+      12704 |     43789 | F             |    137251.63 | 2007-02-10  | 5-LOW           | Clerk#000000553 |              0 | slowly regular dolphins impress. 
+      12704 |     43789 | F             |    137251.63 | 2000-02-10  | 5-LOW           | Clerk#000000553 |              0 | slowly regular dolphins impress. 
+      12705 |     29455 | F             |    105460.66 | 1994-09-16  | 5-LOW           | Clerk#000000983 |              0 | furiously even braids nag carefully at the carefull
+      12705 |     29455 | F             |    105460.66 | 2008-09-16  | 5-LOW           | Clerk#000000983 |              0 | furiously even braids nag carefully at the carefull
+      12705 |     29455 | F             |    105460.66 | 2001-09-16  | 5-LOW           | Clerk#000000983 |              0 | furiously even braids nag carefully at the carefull
+      12706 |     45730 | F             |    160325.91 | 1994-11-21  | 1-URGENT        | Clerk#000000997 |              0 | theodolites about the carefully pending asymptotes promise quickly agains
+      12706 |     45730 | F             |    160325.91 | 2008-11-21  | 1-URGENT        | Clerk#000000997 |              0 | theodolites about the carefully pending asymptotes promise quickly agains
+      12706 |     45730 | F             |    160325.91 | 2001-11-21  | 1-URGENT        | Clerk#000000997 |              0 | theodolites about the carefully pending asymptotes promise quickly agains
+      12707 |    121888 | F             |    246793.37 | 2007-05-30  | 2-HIGH          | Clerk#000000820 |              0 | busy, regular platelets about the final depos
+      12707 |    121888 | F             |    246793.37 | 1993-05-30  | 2-HIGH          | Clerk#000000820 |              0 | busy, regular platelets about the final depos
+      12707 |    121888 | F             |    246793.37 | 2000-05-30  | 2-HIGH          | Clerk#000000820 |              0 | busy, regular platelets about the final depos
+      12708 |     17191 | F             |    324711.56 | 1993-01-08  | 5-LOW           | Clerk#000000882 |              0 | pending deposits are enticingly. platelets h
+      12708 |     17191 | F             |    324711.56 | 2000-01-08  | 5-LOW           | Clerk#000000882 |              0 | pending deposits are enticingly. platelets h
+      12708 |     17191 | F             |    324711.56 | 2007-01-08  | 5-LOW           | Clerk#000000882 |              0 | pending deposits are enticingly. platelets h
+      12709 |     26605 | O             |     78037.19 | 2003-05-11  | 5-LOW           | Clerk#000000991 |              0 | even, pending foxes snooze blithely regular reque
+      12709 |     26605 | O             |     78037.19 | 2010-05-11  | 5-LOW           | Clerk#000000991 |              0 | even, pending foxes snooze blithely regular reque
+      12709 |     26605 | O             |     78037.19 | 1996-05-11  | 5-LOW           | Clerk#000000991 |              0 | even, pending foxes snooze blithely regular reque
+      12710 |    116836 | F             |    308751.24 | 1993-08-18  | 1-URGENT        | Clerk#000000329 |              0 | pending, bold foxes along the f
+      12710 |    116836 | F             |    308751.24 | 2007-08-18  | 1-URGENT        | Clerk#000000329 |              0 | pending, bold foxes along the f
+      12710 |    116836 | F             |    308751.24 | 2000-08-18  | 1-URGENT        | Clerk#000000329 |              0 | pending, bold foxes along the f
+      12711 |      8395 | F             |    114070.95 | 1999-02-20  | 1-URGENT        | Clerk#000000326 |              0 | fluffily regular deposits cajole furiously? silent pinto beans use furi
+      12711 |      8395 | F             |    114070.95 | 2006-02-20  | 1-URGENT        | Clerk#000000326 |              0 | fluffily regular deposits cajole furiously? silent pinto beans use furi
+      12711 |      8395 | F             |    114070.95 | 1992-02-20  | 1-URGENT        | Clerk#000000326 |              0 | fluffily regular deposits cajole furiously? silent pinto beans use furi
+(72 rows)
+
+Time: 337.850 ms
+select * from    lineitem  where   l_orderkey = 221 ;
+ l_orderkey | l_partkey | l_suppkey | l_linenumber | l_quantity | l_extendedprice | l_discount | l_tax | l_returnflag | l_linestatus | l_shipdate | l_commitdate | l_receiptdate | l_shipinstruct | l_shipmode | l_comment 
+------------+-----------+-----------+--------------+------------+-----------------+------------+-------+--------------+--------------+------------+--------------+---------------+----------------+------------+-----------
+(0 rows)
+
+Time: 96.526 ms
+select * from    lineitem  where   l_orderkey = 12221 order by 1 ;
+ l_orderkey | l_partkey | l_suppkey | l_linenumber | l_quantity | l_extendedprice | l_discount | l_tax | l_returnflag | l_linestatus | l_shipdate | l_commitdate | l_receiptdate | l_shipinstruct | l_shipmode | l_comment 
+------------+-----------+-----------+--------------+------------+-----------------+------------+-------+--------------+--------------+------------+--------------+---------------+----------------+------------+-----------
+(0 rows)
+
+Time: 44.573 ms
+select  c_custkey, count(*) cnt   from  customer where  c_custkey = 19383 group by 1 order by 1;
+ c_custkey | cnt 
+-----------+-----
+     19383 |   1
+(1 row)
+
+Time: 40.949 ms
+select * from orders where o_orderkey between  191919 and 191940 order by 1;
+ o_orderkey | o_custkey | o_orderstatus | o_totalprice | o_orderdate | o_orderpriority |     o_clerk     | o_shippriority |                                 o_comment                                 
+------------+-----------+---------------+--------------+-------------+-----------------+-----------------+----------------+---------------------------------------------------------------------------
+     191936 |     26897 | F             |    259161.39 | 1992-02-23  | 4-NOT SPECIFIED | Clerk#000000393 |              0 | carefully final theodolites pri
+     191936 |     26897 | F             |    259161.39 | 2006-02-23  | 4-NOT SPECIFIED | Clerk#000000393 |              0 | carefully final theodolites pri
+     191936 |     26897 | F             |    259161.39 | 1999-02-23  | 4-NOT SPECIFIED | Clerk#000000393 |              0 | carefully final theodolites pri
+     191937 |     96559 | F             |    277558.95 | 2008-08-07  | 5-LOW           | Clerk#000000348 |              0 | accounts snooze furiously. express asymptotes sleep furiously pac
+     191937 |     96559 | F             |    277558.95 | 2001-08-07  | 5-LOW           | Clerk#000000348 |              0 | accounts snooze furiously. express asymptotes sleep furiously pac
+     191937 |     96559 | F             |    277558.95 | 1994-08-07  | 5-LOW           | Clerk#000000348 |              0 | accounts snooze furiously. express asymptotes sleep furiously pac
+     191938 |      9079 | F             |     32998.51 | 2001-09-15  | 4-NOT SPECIFIED | Clerk#000000555 |              0 | special courts are. daringly express packages along the carefully ironic 
+     191938 |      9079 | F             |     32998.51 | 1994-09-15  | 4-NOT SPECIFIED | Clerk#000000555 |              0 | special courts are. daringly express packages along the carefully ironic 
+     191938 |      9079 | F             |     32998.51 | 2008-09-15  | 4-NOT SPECIFIED | Clerk#000000555 |              0 | special courts are. daringly express packages along the carefully ironic 
+     191939 |     15625 | F             |     31359.07 | 1999-01-10  | 4-NOT SPECIFIED | Clerk#000000712 |              0 | regular, final requests detect fluffily until the carefully
+     191939 |     15625 | F             |     31359.07 | 1992-01-10  | 4-NOT SPECIFIED | Clerk#000000712 |              0 | regular, final requests detect fluffily until the carefully
+     191939 |     15625 | F             |     31359.07 | 2006-01-10  | 4-NOT SPECIFIED | Clerk#000000712 |              0 | regular, final requests detect fluffily until the carefully
+     191940 |    103204 | O             |    165738.58 | 2003-09-01  | 1-URGENT        | Clerk#000000540 |              0 | regular, bold deposits around the slyly final theodo
+     191940 |    103204 | O             |    165738.58 | 1996-09-01  | 1-URGENT        | Clerk#000000540 |              0 | regular, bold deposits around the slyly final theodo
+     191940 |    103204 | O             |    165738.58 | 2010-09-01  | 1-URGENT        | Clerk#000000540 |              0 | regular, bold deposits around the slyly final theodo
+(15 rows)
+
+Time: 316.461 ms
+select count(*) from part where p_partkey between 3030 and 3031 order by 1;
+ count 
+-------
+     2
+(1 row)
+
+Time: 32.970 ms
+select l_orderkey, count(*) from    lineitem  where   l_orderkey = 1602111 group by 1 ;
+ l_orderkey | count 
+------------+-------
+(0 rows)
+
+Time: 209.747 ms
+select count(*) From nation where n_nationkey <= 4 ;
+ count 
+-------
+     5
+(1 row)
+
+Time: 23.962 ms
+select * from orders where o_orderkey between  23261 and 23291 order by 1;
+ o_orderkey | o_custkey | o_orderstatus | o_totalprice | o_orderdate | o_orderpriority |     o_clerk     | o_shippriority |                               o_comment                                
+------------+-----------+---------------+--------------+-------------+-----------------+-----------------+----------------+------------------------------------------------------------------------
+      23264 |      6694 | F             |    215559.95 | 2000-12-08  | 1-URGENT        | Clerk#000000764 |              0 | ruthlessly final instructions haggle blithely. never regular the
+      23264 |      6694 | F             |    215559.95 | 2007-12-08  | 1-URGENT        | Clerk#000000764 |              0 | ruthlessly final instructions haggle blithely. never regular the
+      23264 |      6694 | F             |    215559.95 | 1993-12-08  | 1-URGENT        | Clerk#000000764 |              0 | ruthlessly final instructions haggle blithely. never regular the
+      23265 |    133501 | O             |    250203.92 | 2010-03-31  | 5-LOW           | Clerk#000000695 |              0 | ironically ironic theodolites wake furiously! fluf
+      23265 |    133501 | O             |    250203.92 | 2003-03-31  | 5-LOW           | Clerk#000000695 |              0 | ironically ironic theodolites wake furiously! fluf
+      23265 |    133501 | O             |    250203.92 | 1996-03-31  | 5-LOW           | Clerk#000000695 |              0 | ironically ironic theodolites wake furiously! fluf
+      23266 |     44251 | F             |     57030.71 | 2002-02-17  | 3-MEDIUM        | Clerk#000000911 |              0 | regular ideas under the
+      23266 |     44251 | F             |     57030.71 | 2009-02-17  | 3-MEDIUM        | Clerk#000000911 |              0 | regular ideas under the
+      23266 |     44251 | F             |     57030.71 | 1995-02-17  | 3-MEDIUM        | Clerk#000000911 |              0 | regular ideas under the
+      23267 |      8054 | O             |    248857.21 | 2003-06-27  | 3-MEDIUM        | Clerk#000000819 |              0 | furiously regular deposits sleep! carefully special courts a
+      23267 |      8054 | O             |    248857.21 | 1996-06-27  | 3-MEDIUM        | Clerk#000000819 |              0 | furiously regular deposits sleep! carefully special courts a
+      23267 |      8054 | O             |    248857.21 | 2010-06-27  | 3-MEDIUM        | Clerk#000000819 |              0 | furiously regular deposits sleep! carefully special courts a
+      23268 |     60100 | F             |    120405.33 | 1999-01-17  | 2-HIGH          | Clerk#000000538 |              0 | final accounts haggle slyly slyly final packages. furiously ironic ins
+      23268 |     60100 | F             |    120405.33 | 1992-01-17  | 2-HIGH          | Clerk#000000538 |              0 | final accounts haggle slyly slyly final packages. furiously ironic ins
+      23268 |     60100 | F             |    120405.33 | 2006-01-17  | 2-HIGH          | Clerk#000000538 |              0 | final accounts haggle slyly slyly final packages. furiously ironic ins
+      23269 |    118099 | O             |    267886.35 | 1998-02-16  | 2-HIGH          | Clerk#000000265 |              0 | regular deposits engage fluffily across th
+      23269 |    118099 | O             |    267886.35 | 2005-02-16  | 2-HIGH          | Clerk#000000265 |              0 | regular deposits engage fluffily across th
+      23269 |    118099 | O             |    267886.35 | 2012-02-16  | 2-HIGH          | Clerk#000000265 |              0 | regular deposits engage fluffily across th
+      23270 |     63373 | F             |    280260.78 | 1995-03-14  | 5-LOW           | Clerk#000000199 |              0 | slyly special instructions along the carefully pending accounts h
+      23270 |     63373 | F             |    280260.78 | 2002-03-14  | 5-LOW           | Clerk#000000199 |              0 | slyly special instructions along the carefully pending accounts h
+      23270 |     63373 | F             |    280260.78 | 2009-03-14  | 5-LOW           | Clerk#000000199 |              0 | slyly special instructions along the carefully pending accounts h
+      23271 |     85990 | F             |    108697.46 | 2007-11-04  | 2-HIGH          | Clerk#000000064 |              0 | accounts haggle blithely above the doggedly exp
+      23271 |     85990 | F             |    108697.46 | 2000-11-04  | 2-HIGH          | Clerk#000000064 |              0 | accounts haggle blithely above the doggedly exp
+      23271 |     85990 | F             |    108697.46 | 1993-11-04  | 2-HIGH          | Clerk#000000064 |              0 | accounts haggle blithely above the doggedly exp
+(24 rows)
+
+Time: 90.296 ms

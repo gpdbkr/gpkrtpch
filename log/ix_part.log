@@ -1,0 +1,2 @@
+create index part_ix     on part    (P_PARTKEY);  ;
+CREATE INDEX
