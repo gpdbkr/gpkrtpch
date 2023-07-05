@@ -2,6 +2,7 @@
 ./1.1_create_db.sh
 ./1.2_create_role.sh
 ./1.3_create_tb.sh
+./1.4_pk_index.sh
 ./2.0_truncate_tb.sh
 ./2.1_files.sh
 ./2.2_upload.sh

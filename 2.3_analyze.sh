@@ -17,6 +17,7 @@ psql -U udba -d gpkrtpch -ec "analyze gpkrtpch.part     ;" >> $LOGDIR"/analyze.l
 psql -U udba -d gpkrtpch -ec "analyze gpkrtpch.partsupp ;" >> $LOGDIR"/analyze.log" &
 psql -U udba -d gpkrtpch -ec "analyze gpkrtpch.region   ;" >> $LOGDIR"/analyze.log" &
 psql -U udba -d gpkrtpch -ec "analyze gpkrtpch.supplier ;" >> $LOGDIR"/analyze.log" &
+psql -U udba -d gpkrtpch -ec "analyze gpkrtpch.nation   ;" >> $LOGDIR"/analyze.log" &
 
 wait
 ###### query end

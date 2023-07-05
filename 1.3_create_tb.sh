@@ -63,7 +63,7 @@ CREATE TABLE gpkrtpch.PARTSUPP
     PS_SUPPLYCOST  NUMERIC(15,2)  NOT NULL,
     PS_COMMENT     VARCHAR(199) NOT NULL 
 )
-WITH (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib) 
+WITH (appendonly=true, compresslevel=1, orientation=column, compresstype=zstd) 
 DISTRIBUTED BY(PS_PARTKEY)
 ;
 
@@ -94,24 +94,24 @@ CREATE TABLE gpkrtpch.ORDERS
     O_SHIPPRIORITY   INTEGER NOT NULL,
     O_COMMENT        VARCHAR(79) NOT NULL
 ) 
-with (appendonly=true)
+with (appendonly=true, compresstype=zstd, compresslevel=1)
 DISTRIBUTED BY(O_ORDERKEY)
 partition by range(o_orderdate)
 (
-	partition p1992 start('1992-01-01') end ('1993-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib), 
-	partition p1993 start('1993-01-01') end ('1994-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
-	partition p1994 start('1994-01-01') end ('1995-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
-	partition p1995 start('1995-01-01') end ('1996-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
-	partition p1996 start('1996-01-01') end ('1997-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
-	partition p1997 start('1997-01-01') end ('1998-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
-	partition p1998 start('1998-01-01') end ('1999-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
-	partition p1999 start('1999-01-01') end ('2001-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
-	partition p2001 start('2001-01-01') end ('2002-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
-	partition p2002 start('2002-01-01') end ('2003-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
-	partition p2003 start('2003-01-01') end ('2004-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
-	partition p2004 start('2004-01-01') end ('2005-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
-	partition p2005 start('2005-01-01') end ('2006-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
-	partition p2006 start('2006-01-01') end ('2007-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
+	partition p1992 start('1992-01-01') end ('1993-01-01') ,
+	partition p1993 start('1993-01-01') end ('1994-01-01') ,
+	partition p1994 start('1994-01-01') end ('1995-01-01') ,
+	partition p1995 start('1995-01-01') end ('1996-01-01') ,
+	partition p1996 start('1996-01-01') end ('1997-01-01') ,
+	partition p1997 start('1997-01-01') end ('1998-01-01') ,
+	partition p1998 start('1998-01-01') end ('1999-01-01') ,
+	partition p1999 start('1999-01-01') end ('2001-01-01') ,
+	partition p2001 start('2001-01-01') end ('2002-01-01') ,
+	partition p2002 start('2002-01-01') end ('2003-01-01') ,
+	partition p2003 start('2003-01-01') end ('2004-01-01') ,
+	partition p2004 start('2004-01-01') end ('2005-01-01') ,
+	partition p2005 start('2005-01-01') end ('2006-01-01') ,
+	partition p2006 start('2006-01-01') end ('2007-01-01') ,
 	partition p2007 start('2007-01-01') end ('2008-01-01') ,
 	partition p2008 start('2008-01-01') end ('2009-01-01') ,
 	partition p2009 start('2009-01-01') end ('2010-01-01') ,
@@ -140,24 +140,24 @@ CREATE TABLE gpkrtpch.LINEITEM
     L_SHIPMODE     CHAR(10) NOT NULL,
     L_COMMENT      VARCHAR(44) NOT NULL
 ) 
-with (appendonly=true)
+with (appendonly=true, compresstype=zstd, compresslevel=1)
 DISTRIBUTED BY(L_ORDERKEY)
 partition by range (l_shipdate)
 (
-	partition p1992 start('1992-01-01') end ('1993-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib), 
-	partition p1993 start('1993-01-01') end ('1994-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
-	partition p1994 start('1994-01-01') end ('1995-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
-	partition p1995 start('1995-01-01') end ('1996-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
-	partition p1996 start('1996-01-01') end ('1997-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
-	partition p1997 start('1997-01-01') end ('1998-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
-	partition p1998 start('1998-01-01') end ('1999-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
-	partition p1999 start('1999-01-01') end ('2001-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
-	partition p2001 start('2001-01-01') end ('2002-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
-	partition p2002 start('2002-01-01') end ('2003-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
-	partition p2003 start('2003-01-01') end ('2004-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
-	partition p2004 start('2004-01-01') end ('2005-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
-	partition p2005 start('2005-01-01') end ('2006-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
-	partition p2006 start('2006-01-01') end ('2007-01-01') with (appendonly=true, compresslevel=1, orientation=column, compresstype=zlib),
+	partition p1992 start('1992-01-01') end ('1993-01-01') ,
+	partition p1993 start('1993-01-01') end ('1994-01-01') ,
+	partition p1994 start('1994-01-01') end ('1995-01-01') ,
+	partition p1995 start('1995-01-01') end ('1996-01-01') ,
+	partition p1996 start('1996-01-01') end ('1997-01-01') ,
+	partition p1997 start('1997-01-01') end ('1998-01-01') ,
+	partition p1998 start('1998-01-01') end ('1999-01-01') ,
+	partition p1999 start('1999-01-01') end ('2001-01-01') ,
+	partition p2001 start('2001-01-01') end ('2002-01-01') ,
+	partition p2002 start('2002-01-01') end ('2003-01-01') ,
+	partition p2003 start('2003-01-01') end ('2004-01-01') ,
+	partition p2004 start('2004-01-01') end ('2005-01-01') ,
+	partition p2005 start('2005-01-01') end ('2006-01-01') ,
+	partition p2006 start('2006-01-01') end ('2007-01-01') ,
 	partition p2007 start('2007-01-01') end ('2008-01-01') ,
 	partition p2008 start('2008-01-01') end ('2009-01-01') ,
 	partition p2009 start('2009-01-01') end ('2010-01-01') ,
@@ -180,7 +180,7 @@ CREATE TABLE gpkrtpch.CUSTOMER_COM_ROW
     C_MKTSEGMENT  CHAR(10) NOT NULL,
     C_COMMENT     VARCHAR(117) NOT NULL
 )
-WITH (appendonly=true, compresstype=zlib, compresslevel=1)
+WITH (appendonly=true, compresstype=zstd, compresslevel=1)
 DISTRIBUTED BY(C_CUSTKEY)
 ;
 
@@ -195,7 +195,7 @@ CREATE TABLE gpkrtpch.CUSTOMER_COM_COL
     C_MKTSEGMENT  CHAR(10) NOT NULL,
     C_COMMENT     VARCHAR(117) NOT NULL
 )
-WITH (appendonly=true, compresstype=zlib, compresslevel=1, orientation=column)
+WITH (appendonly=true, compresstype=zstd, compresslevel=1, orientation=column)
 DISTRIBUTED BY(C_CUSTKEY)
 ;
 

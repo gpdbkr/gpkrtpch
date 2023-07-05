@@ -114,4 +114,4 @@ DIFFSEC=`expr ${SEC2} - ${SEC1}`
 
 echo "$0: End TIME : "$END_TM1
 echo $BMT_NO"|"$START_TM1"|"$END_TM1"|"$DIFFSEC
-echo $BMT_NO"|"$START_TM1"|"$END_TM1"|"$DIFFSEC >> $LOGFILE
+echo $BMT_NO"|"$START_TM1"|"$END_TM1"|"$DIFFSEC > $LOGFILE
