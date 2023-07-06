@@ -65,14 +65,20 @@ run.sh
 sql
 yml
 [gpadmin@r8g7 gpkrtpch]$
-
 ```
 
 ## 실행 
-1. DB 로그에 쿼리 소요시간을 적재를 위해서는 log_duration을 on으로 설정
+1. 초기 수행
 ```
 [gpadmin@r8g7 gpkrtpch]$ cd /data/gpkrtpch
 [gpadmin@r8g7 gpkrtpch]$ chmod 755 *.sh
+[gpadmin@r8g7 gpkrtpch]$ ./all.sh
+```
+
+2. 재수행
+```
+[gpadmin@r8g7 gpkrtpch]$ vi ./all.sh
+#./1.0_load_hba.sh ## 첫 라인만 주석 처리 후 저장
 [gpadmin@r8g7 gpkrtpch]$ ./all.sh
 ```
 
