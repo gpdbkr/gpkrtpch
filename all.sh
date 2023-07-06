@@ -1,4 +1,4 @@
-#./1.0_load_hba.sh
+./1.0_load_hba.sh
 ./1.1_create_db.sh
 ./1.2_create_role.sh
 ./1.3_create_tb.sh
