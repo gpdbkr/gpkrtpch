@@ -83,6 +83,7 @@ yml
 ```
 
 ## 실행 소요 시간 로그 확인
+로그 포맷: 스크립트명|시작시각|종료시각|소요시간(초)
 ```
 [gpadmin@r8g6single gpkrtpch]$ cd /data/gpkrtpch/log
 [gpadmin@r8g6single log]$ tail -n 1  ?.?_*.log  | grep "|"
